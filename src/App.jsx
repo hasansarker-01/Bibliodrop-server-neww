@@ -2664,118 +2664,62 @@ function DeliveryTable({
           copy="Check the order number or search term."
         />
       ) : (
-        <div className="w-full max-w-full overflow-x-auto overscroll-x-contain rounded-[20px] border border-[#ecebfa] bg-[#f2edff] shadow-[0_10px_24px_rgba(58,53,113,.06)]">
-          <table
-            className={`w-full ${admin ? "min-w-[1450px]" : "min-w-[1120px]"} table-fixed border-collapse text-left text-[13px] text-[#49456f]`}
-          >
-            <thead className="bg-[#eae6ff] text-[11px] font-bold uppercase tracking-[.08em] text-[#514d78]">
-              <tr className="border-b border-[#ecebfa]">
-                <th className={`${admin ? "w-[12%]" : "w-[13%]"} px-4 py-4`}>Book</th>
-                <th className={`${admin ? "w-[12%]" : "w-[13%]"} px-4 py-4`}>{librarian ? "Reader" : "Ordered"}</th>
-                {admin && <th className="w-[9%] bg-amber-300 px-4 py-4 text-amber-950">Date</th>}
-                <th className={`${admin ? "w-[8%]" : "w-[10%]"} px-4 py-4`}>City</th>
-                <th className={`${admin ? "w-[13%]" : "w-[15%]"} px-4 py-4`}>Tracking number</th>
-                <th className={`${admin ? "w-[7%]" : "w-[9%]"} px-4 py-4`}>Fee</th>
-                {admin && <th className="w-[10%] bg-[#39226e] px-4 py-4 text-white">Payment status</th>}
-                <th className={`${admin ? "w-[19%]" : ""} px-4 py-4`}>{admin ? "Process" : "Tracking progress"}</th>
-                {librarian && <th className={`${admin ? "w-[10%]" : "w-[12%]"} px-4 py-4`}>Update</th>}
-              </tr>
-            </thead>
-            <tbody>
-              {filtered.map((d) => {
-                const paymentEvent = (d.trackingEvents || []).find((event) =>
-                  /payment|order received/i.test(`${event.note || ""} ${event.status || ""}`),
-                );
-                const deliveryEvents = (d.trackingEvents || []).filter(
-                  (event) => !/payment|order received/i.test(`${event.note || ""} ${event.status || ""}`),
-                );
-                return (
-                <tr className="border-b border-[#f0eff8] align-top transition-colors last:border-0 hover:bg-[#eee9ff]" key={d._id}>
-                  <td className="px-4 py-4 font-semibold text-[#29294f]">
-                    <b className="block leading-5">{d.book?.title || "Book"}</b>
-                    {librarian && (
-                      <small className="mt-1 block break-words text-[10px] font-normal leading-4 text-[#5b5780]">
-                        {d.reader?.name} · {d.reader?.email}
-                      </small>
-                    )}
-                  </td>
-                  <td className="px-4 py-4 text-xs leading-5">
-                    {librarian
-                      ? d.reader?.email
-                      : new Date(d.createdAt).toLocaleDateString()}
-                  </td>
+        <div className="flex flex-col gap-4">
+          {filtered.map((d) => {
+            const paymentEvent = (d.trackingEvents || []).find((event) =>
+              /payment|order received/i.test(`${event.note || ""} ${event.status || ""}`),
+            );
+            const deliveryEvents = (d.trackingEvents || []).filter(
+              (event) => !/payment|order received/i.test(`${event.note || ""} ${event.status || ""}`),
+            );
+            const paymentStatus = (d.paymentStatus || "paid").replace(/[_-]/g, " ");
+            return (
+              <article key={d._id} className="overflow-hidden rounded-[26px] border border-violet-200/80 bg-gradient-to-br from-[#f8f5ff] via-[#f3efff] to-[#fff1f6] shadow-[0_14px_34px_rgba(73,63,160,.10)] transition hover:-translate-y-0.5 hover:shadow-[0_18px_42px_rgba(73,63,160,.15)]">
+                <div className="flex flex-wrap items-start justify-between gap-5 border-b border-violet-200/70 px-5 py-5 max-[600px]:px-4">
+                  <div className="flex min-w-[220px] flex-1 items-center gap-4">
+                    <img className="h-[76px] w-[58px] shrink-0 rounded-xl object-cover shadow-md ring-2 ring-white/80" src={d.book?.coverUrl || coverFallback} alt={`Cover of ${d.book?.title || "book"}`} />
+                    <div className="min-w-0">
+                      <span className="mb-1 block text-[10px] font-extrabold uppercase tracking-[.16em] text-violet-600">{d.orderNumber ? `Order ${d.orderNumber}` : "Book order"}</span>
+                      <h3 className="truncate font-display text-lg font-extrabold leading-6 text-[#29244f]">{d.book?.title || "Book"}</h3>
+                      <p className="mt-1 truncate text-sm font-medium text-[#514d78]">{d.book?.author || "BiblioDrop shelf"}</p>
+                    </div>
+                  </div>
                   {admin && (
-                    <td className="whitespace-nowrap bg-amber-50 px-4 py-4 text-xs font-bold text-amber-950">
-                      {new Date(paymentEvent?.createdAt || d.createdAt).toLocaleDateString()}
-                    </td>
-                  )}
-                  <td
-                    className="max-w-[145px] break-words px-4 py-4 text-xs"
-                  >
-                    {d.city || "—"}
-                  </td>
-                  <td
-                    className="break-all px-4 py-4 text-[11px] font-bold text-[#4f4e81]"
-                  >
-                    {d.trackingNumber ||
-                      (d.orderNumber ? (
-                        `TRK-${d.orderNumber}`
-                      ) : (
-                        <span className="[font-size:10px] [font-weight:500] [color:#929b93]">
-                          Not assigned
-                        </span>
-                      ))}
-                  </td>
-                  <td className="whitespace-nowrap px-4 py-4 font-semibold text-[#29294f]">{money(d.amount)}</td>
-                  {admin && (
-                    <td className="bg-[#4a327f] px-4 py-4 text-white">
-                      <span className={`inline-flex rounded-full px-3 py-1.5 text-xs font-extrabold ${d.paymentStatus === "failed" || d.paymentStatus === "unpaid" ? "bg-rose-200 text-rose-950" : "bg-emerald-200 text-emerald-950"}`}>
-                        {(d.paymentStatus || "paid").replace(/[_-]/g, " ").toUpperCase()}
-                      </span>
-                    </td>
-                  )}
-                  <td className="min-w-0 px-4 py-3">
-                    <OrderProgress status={d.status} />
-                    {d.status === "returned" && (
-                      <StatusBadge status="returned" />
-                    )}
-                    {!!deliveryEvents.length && (
-                      <div className="mt-2 grid grid-cols-2 gap-2 max-[760px]:grid-cols-1">
-                        {deliveryEvents.slice(-2).map((event, i) => (
-                          <small className="min-w-0 rounded-lg bg-[#e9e4ff] px-2.5 py-2 text-[10px] leading-4 text-[#393166]" key={i}>
-                            {new Date(event.createdAt).toLocaleDateString()} ·{" "}
-                            {event.note || event.status}
-                          </small>
-                        ))}
+                    <div className="flex flex-wrap gap-3">
+                      <div className="min-w-[130px] rounded-2xl border border-amber-300/70 bg-amber-100 px-4 py-3 text-amber-950 shadow-sm">
+                        <span className="block text-[10px] font-extrabold uppercase tracking-[.12em] text-amber-800">Order date</span>
+                        <strong className="mt-1 block text-sm">{new Date(paymentEvent?.createdAt || d.createdAt).toLocaleDateString()}</strong>
                       </div>
-                    )}
-                  </td>
-                  {librarian && (
-                    <td className="px-4 py-4">
-                      {d.status !== "returned" && (
-                        <button
-                          className={`${"[display:inline-flex] [align-items:center] [gap:4px] [border:0] [background:none] [color:#5b4be8] [font-size:8px] [font-weight:700] [padding:5px] [margin:0] [white-space:nowrap] [border-radius:7px] [transition:background_0.15s_ease,_color_0.15s_ease,_transform_0.15s_ease] max-[760px]:[font-size:9px] hover:[background:#edf4ed] hover:[color:#28583e] hover:[transform:translateY(-1px)]"}`}
-                          onClick={() => open(d)}
-                        >
-                          {d.status === "pending"
-                            ? "Start processing"
-                            : d.status === "processing"
-                              ? "Dispatch"
-                              : d.status === "dispatched"
-                                ? "Mark on the way"
-                                : d.status === "in_transit"
-                                  ? "Confirm delivery"
-                                  : "Close order"}{" "}
-                          <ArrowRight size={13} />
-                        </button>
-                      )}
-                    </td>
+                      <div className="min-w-[130px] rounded-2xl border border-violet-950/20 bg-[#39226e] px-4 py-3 text-white shadow-sm">
+                        <span className="block text-[10px] font-extrabold uppercase tracking-[.12em] text-violet-200">Payment status</span>
+                        <strong className="mt-1 block text-sm capitalize">{paymentStatus}</strong>
+                      </div>
+                    </div>
                   )}
-                </tr>
-                );
-              })}
-            </tbody>
-          </table>
+                </div>
+                <div className="flex flex-wrap gap-x-7 gap-y-3 px-5 py-4 text-sm max-[600px]:px-4">
+                  {(librarian || !admin) && <div className="min-w-[180px] flex-1"><span className="block text-[10px] font-bold uppercase tracking-wider text-violet-500">Reader</span><strong className="mt-1 block break-all text-[#39345f]">{d.reader?.email || d.reader?.name || "—"}</strong></div>}
+                  <div className="min-w-[110px] flex-1"><span className="block text-[10px] font-bold uppercase tracking-wider text-fuchsia-600">City</span><strong className="mt-1 block break-words text-[#39345f]">{d.city || "—"}</strong></div>
+                  <div className="min-w-[180px] flex-1"><span className="block text-[10px] font-bold uppercase tracking-wider text-indigo-500">Tracking number</span><strong className="mt-1 block break-all text-[#39345f]">{d.trackingNumber || (d.orderNumber ? `TRK-${d.orderNumber}` : "Not assigned")}</strong></div>
+                  <div className="min-w-[90px]"><span className="block text-[10px] font-bold uppercase tracking-wider text-emerald-600">Fee</span><strong className="mt-1 block text-base text-[#286b56]">{money(d.amount)}</strong></div>
+                </div>
+                <div className="flex flex-wrap items-stretch gap-4 px-5 pb-5 max-[600px]:flex-col max-[600px]:px-4">
+                  <div className="min-w-0 flex-1 rounded-2xl border border-violet-200/70 bg-[#eae6ff] p-4">
+                    <div className="mb-2 flex flex-wrap items-center justify-between gap-2"><span className="text-xs font-extrabold uppercase tracking-[.12em] text-indigo-800">Delivery progress</span><StatusBadge status={d.status} /></div>
+                    <OrderProgress status={d.status} />
+                    {!!deliveryEvents.length && <div className="mt-3 flex flex-wrap gap-2">{deliveryEvents.slice(-2).map((event, i) => <span className="rounded-xl border border-violet-200 bg-[#ddd6ff] px-3 py-2 text-xs font-medium text-[#393166]" key={i}>{new Date(event.createdAt).toLocaleDateString()} · {event.note || event.status}</span>)}</div>}
+                  </div>
+                  {librarian && d.status !== "returned" && (
+                    <div className="flex items-center max-[600px]:justify-end">
+                      <button className="inline-flex min-h-12 items-center justify-center gap-2 rounded-full bg-gradient-to-r from-[#5745c5] to-[#8c3ca3] px-5 text-sm font-extrabold text-white shadow-[0_9px_20px_rgba(91,75,232,.24)] transition hover:-translate-y-0.5 hover:shadow-lg" onClick={() => open(d)}>
+                        {d.status === "pending" ? "Start processing" : d.status === "processing" ? "Dispatch" : d.status === "dispatched" ? "Mark on the way" : d.status === "in_transit" ? "Confirm delivery" : "Close order"}<ArrowRight size={16} />
+                      </button>
+                    </div>
+                  )}
+                </div>
+              </article>
+            );
+          })}
         </div>
       )}
       {editing && (
