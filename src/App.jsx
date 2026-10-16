@@ -2672,17 +2672,24 @@ function DeliveryTable({
               <tr className="border-b border-[#ecebfa]">
                 <th className={`${admin ? "w-[12%]" : "w-[13%]"} px-4 py-4`}>Book</th>
                 <th className={`${admin ? "w-[12%]" : "w-[13%]"} px-4 py-4`}>{librarian ? "Reader" : "Ordered"}</th>
-                {admin && <th className="w-[9%] px-4 py-4">Date</th>}
+                {admin && <th className="w-[9%] bg-amber-300 px-4 py-4 text-amber-950">Date</th>}
                 <th className={`${admin ? "w-[8%]" : "w-[10%]"} px-4 py-4`}>City</th>
                 <th className={`${admin ? "w-[13%]" : "w-[15%]"} px-4 py-4`}>Tracking number</th>
                 <th className={`${admin ? "w-[7%]" : "w-[9%]"} px-4 py-4`}>Fee</th>
-                {admin && <th className="w-[10%] px-4 py-4">Payment status</th>}
+                {admin && <th className="w-[10%] bg-[#39226e] px-4 py-4 text-white">Payment status</th>}
                 <th className={`${admin ? "w-[19%]" : ""} px-4 py-4`}>{admin ? "Process" : "Tracking progress"}</th>
                 {librarian && <th className={`${admin ? "w-[10%]" : "w-[12%]"} px-4 py-4`}>Update</th>}
               </tr>
             </thead>
             <tbody>
-              {filtered.map((d) => (
+              {filtered.map((d) => {
+                const paymentEvent = (d.trackingEvents || []).find((event) =>
+                  /payment|order received/i.test(`${event.note || ""} ${event.status || ""}`),
+                );
+                const deliveryEvents = (d.trackingEvents || []).filter(
+                  (event) => !/payment|order received/i.test(`${event.note || ""} ${event.status || ""}`),
+                );
+                return (
                 <tr className="border-b border-[#f0eff8] align-top transition-colors last:border-0 hover:bg-[#eee9ff]" key={d._id}>
                   <td className="px-4 py-4 font-semibold text-[#29294f]">
                     <b className="block leading-5">{d.book?.title || "Book"}</b>
@@ -2698,8 +2705,8 @@ function DeliveryTable({
                       : new Date(d.createdAt).toLocaleDateString()}
                   </td>
                   {admin && (
-                    <td className="whitespace-nowrap px-4 py-4 text-xs text-[#514d78]">
-                      {new Date(d.createdAt).toLocaleDateString()}
+                    <td className="whitespace-nowrap bg-amber-50 px-4 py-4 text-xs font-bold text-amber-950">
+                      {new Date(paymentEvent?.createdAt || d.createdAt).toLocaleDateString()}
                     </td>
                   )}
                   <td
@@ -2721,8 +2728,10 @@ function DeliveryTable({
                   </td>
                   <td className="whitespace-nowrap px-4 py-4 font-semibold text-[#29294f]">{money(d.amount)}</td>
                   {admin && (
-                    <td className="px-4 py-4">
-                      <StatusBadge status={d.paymentStatus || "paid"} />
+                    <td className="bg-[#4a327f] px-4 py-4 text-white">
+                      <span className={`inline-flex rounded-full px-3 py-1.5 text-xs font-extrabold ${d.paymentStatus === "failed" || d.paymentStatus === "unpaid" ? "bg-rose-200 text-rose-950" : "bg-emerald-200 text-emerald-950"}`}>
+                        {(d.paymentStatus || "paid").replace(/[_-]/g, " ").toUpperCase()}
+                      </span>
                     </td>
                   )}
                   <td className="min-w-0 px-4 py-3">
@@ -2730,10 +2739,10 @@ function DeliveryTable({
                     {d.status === "returned" && (
                       <StatusBadge status="returned" />
                     )}
-                    {!!d.trackingEvents?.length && (
+                    {!!deliveryEvents.length && (
                       <div className="mt-2 grid grid-cols-2 gap-2 max-[760px]:grid-cols-1">
-                        {d.trackingEvents.slice(-2).map((event, i) => (
-                          <small className="min-w-0 rounded-lg bg-[#f8f8fc] px-2.5 py-2 text-[10px] leading-4 text-[#514d78]" key={i}>
+                        {deliveryEvents.slice(-2).map((event, i) => (
+                          <small className="min-w-0 rounded-lg bg-[#e9e4ff] px-2.5 py-2 text-[10px] leading-4 text-[#393166]" key={i}>
                             {new Date(event.createdAt).toLocaleDateString()} ·{" "}
                             {event.note || event.status}
                           </small>
@@ -2763,7 +2772,8 @@ function DeliveryTable({
                     </td>
                   )}
                 </tr>
-              ))}
+                );
+              })}
             </tbody>
           </table>
         </div>
