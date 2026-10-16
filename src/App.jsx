@@ -161,7 +161,7 @@ function App() {
             <NavLink to="/books" className={({ isActive }) => `rounded-full px-4 py-3 transition-colors hover:bg-[#f0edff] hover:text-[#5b4be8] max-[960px]:rounded-xl max-[960px]:px-3 ${isActive ? "bg-[#f0edff] text-[#5b4be8]" : ""}`} onClick={() => setMenu(false)}>
               Browse books
             </NavLink>
-            {user && (
+            {user && (user.role === "user" || user.role === "librarian") && (
               <Link
                 className="inline-flex items-center gap-2 rounded-full px-4 py-3 text-[12px] text-[#222344] transition-colors hover:bg-[#f0edff] hover:text-[#5b4be8] max-[960px]:rounded-xl max-[960px]:px-3"
                 to="/cart"
@@ -172,7 +172,7 @@ function App() {
             )}
             {user && (
               <Link
-                className="grid h-[42px] w-[42px] shrink-0 place-items-center overflow-hidden rounded-full border-[3px] border-white bg-gradient-to-br from-[#ff9bb0] to-[#ff718d] p-0.5 shadow-[0_0_0_2px_#eeeaff] max-[960px]:my-2"
+                className="grid h-[42px] w-[42px] shrink-0 self-center place-items-center overflow-hidden rounded-full border-[3px] border-white bg-gradient-to-br from-[#ff9bb0] to-[#ff718d] p-0.5 shadow-[0_0_0_2px_#eeeaff] max-[960px]:my-2"
                 to={`/dashboard/${user.role}?tab=profile`}
                 onClick={() => setMenu(false)}
               >
