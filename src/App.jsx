@@ -131,10 +131,10 @@ function App() {
   };
   return (
     <div className="min-h-screen bg-[radial-gradient(ellipse_at_top_left,_rgba(124,108,247,.12),_transparent_34rem),radial-gradient(ellipse_at_top_right,_rgba(255,124,155,.1),_transparent_30rem),#fbfaff] text-[15px] leading-6 text-[#292743] antialiased [font-family:Inter,ui-sans-serif,system-ui,sans-serif] selection:bg-violet-200 selection:text-violet-950 [&_p]:leading-7 [&_small]:!text-xs [&_label]:!text-sm [&_input]:!text-sm [&_select]:!text-sm [&_textarea]:!text-sm [&_input::placeholder]:!text-slate-400 [&_textarea::placeholder]:!text-slate-400 [&_td]:!text-xs [&_button:focus-visible]:outline-none [&_button:focus-visible]:ring-4 [&_button:focus-visible]:ring-violet-200 [&_a:focus-visible]:outline-none [&_a:focus-visible]:ring-4 [&_a:focus-visible]:ring-violet-200">
-      <header className="sticky top-0 z-40 h-[78px] border-b border-[#e9e5ff] bg-white/90 shadow-[0_10px_36px_rgba(73,63,160,.09)] backdrop-blur-xl max-[760px]:h-[70px]">
+      <header className="sticky top-0 z-40 h-[78px] border-b border-violet-300/30 bg-gradient-to-r from-[#342b7b] via-[#5141ad] to-[#7846a8] text-white shadow-[0_10px_36px_rgba(73,63,160,.28)] max-[760px]:h-[70px]">
         <div className="mx-auto flex h-full max-w-[1440px] items-center justify-between px-[42px] max-[1000px]:px-7 max-[760px]:px-5 max-[960px]:relative">
           <Link
-            className="inline-flex items-center gap-3 font-display text-[23px] font-black leading-none tracking-[-.035em] text-[#302d61] max-[760px]:text-[21px] max-[390px]:text-[19px]"
+            className="inline-flex items-center gap-3 font-display text-[23px] font-black leading-none tracking-[-.035em] text-white max-[760px]:text-[21px] max-[390px]:text-[19px]"
             to="/"
           >
             <span className="grid h-[42px] w-[42px] place-items-center rounded-[15px_15px_15px_6px] bg-gradient-to-br from-[#8677ff] to-[#5b4be8] text-[#faf7ef] shadow-[0_7px_16px_rgba(91,75,232,.27)] max-[760px]:h-[35px] max-[760px]:w-[35px] max-[390px]:h-8 max-[390px]:w-8">
@@ -142,28 +142,28 @@ function App() {
             </span>
             <span>
               Biblio<span className="[color:#ff7c9b]">Drop</span>
-              <small className="mt-1 block font-sans text-[9px] font-bold tracking-[.19em] text-[#8888ad]">BOOKS, BROUGHT CLOSER</small>
+              <small className="mt-1 block font-sans text-[9px] font-bold tracking-[.19em] text-violet-100">BOOKS, BROUGHT CLOSER</small>
             </span>
           </Link>
           <button
-            className="hidden h-12 w-12 place-items-center rounded-2xl border-0 bg-[#f0edff] p-2 text-[#5b4be8] max-[960px]:grid"
+            className="hidden h-12 w-12 place-items-center rounded-2xl border border-white/20 bg-white/15 p-2 text-white max-[960px]:grid"
             onClick={() => setMenu(!menu)}
             aria-label="Toggle navigation"
           >
             {menu ? <X /> : <Menu />}
           </button>
           <nav
-            className={`flex items-center gap-2.5 whitespace-nowrap text-sm font-bold text-[#555775] ${menu ? "max-[960px]:flex" : "max-[960px]:hidden"} max-[960px]:absolute max-[960px]:right-[22px] max-[960px]:top-[calc(100%+10px)] max-[960px]:z-50 max-[960px]:min-w-[min(340px,calc(100vw-32px))] max-[960px]:flex-col max-[960px]:items-stretch max-[960px]:gap-1 max-[960px]:rounded-[22px] max-[960px]:border max-[960px]:border-[#eeedfa] max-[960px]:bg-white/95 max-[960px]:p-3.5 max-[960px]:shadow-[0_18px_38px_rgba(58,53,113,.16)] max-[960px]:backdrop-blur-lg`}
+            className={`flex items-center gap-2.5 whitespace-nowrap text-sm font-bold text-white/95 ${menu ? "max-[960px]:flex" : "max-[960px]:hidden"} max-[960px]:absolute max-[960px]:right-[22px] max-[960px]:top-[calc(100%+10px)] max-[960px]:z-50 max-[960px]:min-w-[min(340px,calc(100vw-32px))] max-[960px]:flex-col max-[960px]:items-stretch max-[960px]:gap-1 max-[960px]:rounded-[22px] max-[960px]:border max-[960px]:border-violet-200/30 max-[960px]:bg-gradient-to-br max-[960px]:from-[#493d9b] max-[960px]:to-[#854b98] max-[960px]:p-3.5 max-[960px]:shadow-[0_18px_38px_rgba(58,53,113,.3)] max-[960px]:backdrop-blur-lg`}
           >
-            <NavLink end to="/" className={({ isActive }) => `rounded-full px-4 py-3 transition-colors hover:bg-[#f0edff] hover:text-[#5b4be8] max-[960px]:rounded-xl max-[960px]:px-3 ${isActive ? "bg-[#f0edff] text-[#5b4be8]" : ""}`} onClick={() => setMenu(false)}>
+            <NavLink end to="/" className={({ isActive }) => `rounded-full px-4 py-3 transition-colors hover:bg-white/15 hover:text-white max-[960px]:rounded-xl max-[960px]:px-3 ${isActive ? "bg-white/20 text-white" : ""}`} onClick={() => setMenu(false)}>
               Home
             </NavLink>
-            <NavLink to="/books" className={({ isActive }) => `rounded-full px-4 py-3 transition-colors hover:bg-[#f0edff] hover:text-[#5b4be8] max-[960px]:rounded-xl max-[960px]:px-3 ${isActive ? "bg-[#f0edff] text-[#5b4be8]" : ""}`} onClick={() => setMenu(false)}>
+            <NavLink to="/books" className={({ isActive }) => `rounded-full px-4 py-3 transition-colors hover:bg-white/15 hover:text-white max-[960px]:rounded-xl max-[960px]:px-3 ${isActive ? "bg-white/20 text-white" : ""}`} onClick={() => setMenu(false)}>
               Browse books
             </NavLink>
             {user && (user.role === "user" || user.role === "librarian") && (
               <Link
-                className="inline-flex items-center gap-2 rounded-full px-4 py-3 text-[12px] text-[#222344] transition-colors hover:bg-[#f0edff] hover:text-[#5b4be8] max-[960px]:rounded-xl max-[960px]:px-3"
+                className="inline-flex items-center gap-2 rounded-full px-4 py-3 text-[12px] text-white transition-colors hover:bg-white/15 hover:text-white max-[960px]:rounded-xl max-[960px]:px-3"
                 to="/cart"
                 onClick={() => setMenu(false)}
               >
@@ -186,20 +186,20 @@ function App() {
             {user && (
               <NavLink
                 to={`/dashboard/${user.role}`}
-                className={({ isActive }) => `rounded-full px-4 py-3 transition-colors hover:bg-[#f0edff] hover:text-[#5b4be8] max-[960px]:rounded-xl max-[960px]:px-3 ${isActive ? "bg-[#f0edff] text-[#5b4be8]" : ""}`}
+                className={({ isActive }) => `rounded-full px-4 py-3 transition-colors hover:bg-white/15 hover:text-white max-[960px]:rounded-xl max-[960px]:px-3 ${isActive ? "bg-white/20 text-white" : ""}`}
                 onClick={() => setMenu(false)}
               >
                 {user.role === "librarian" ? "Librarian account" : "Dashboard"}
               </NavLink>
             )}
             {!user && (
-              <NavLink to="/login" className="rounded-full px-4 py-3 transition-colors hover:bg-[#f0edff] hover:text-[#5b4be8] max-[960px]:rounded-xl max-[960px]:px-3" onClick={() => setMenu(false)}>
+              <NavLink to="/login" className="rounded-full px-4 py-3 transition-colors hover:bg-white/15 hover:text-white max-[960px]:rounded-xl max-[960px]:px-3" onClick={() => setMenu(false)}>
                 Log in
               </NavLink>
             )}
             {user ? (
               <button
-                className="inline-flex items-center gap-2 rounded-full border-0 bg-transparent px-4 py-3 text-[13px] text-[#59645c] transition-colors hover:bg-[#efedff] hover:text-[#5143d2] max-[960px]:rounded-xl max-[960px]:px-3"
+                className="inline-flex items-center gap-2 rounded-full border border-white/25 bg-white/10 px-4 py-3 text-[13px] text-white transition-colors hover:bg-white/20 hover:text-white max-[960px]:rounded-xl max-[960px]:px-3"
                 onClick={logout}
               >
                 <LogOut size={15} /> Sign out
@@ -235,7 +235,7 @@ function App() {
               path="/cart"
               element={
                 authLoading ? (
-                  <div className="flex min-h-[440px] items-center justify-center gap-3 text-sm text-[#777993]">
+                  <div className="flex min-h-[440px] items-center justify-center gap-3 text-sm text-[#514d78]">
                     <LoaderCircle className="animate-spin text-[#6b5ce7]" />
                     Loading your library…
                   </div>
@@ -281,7 +281,7 @@ function App() {
               path="/dashboard/:role"
               element={
                 authLoading ? (
-                  <div className="flex min-h-[440px] items-center justify-center gap-3 text-sm text-[#777993]">
+                  <div className="flex min-h-[440px] items-center justify-center gap-3 text-sm text-[#514d78]">
                     <LoaderCircle className="animate-spin text-[#6b5ce7]" /> Loading your library…
                   </div>
                 ) : (
@@ -516,7 +516,7 @@ function Home() {
             Your shelves have
             <br />a story to tell.
           </h2>
-          <p className="text-[13px] leading-6 text-[#74758f]">
+          <p className="text-[13px] leading-6 text-[#514d78]">
             Share the books you love with readers who will love them next.
             BiblioDrop helps your little library find a much bigger
             neighborhood.
@@ -576,7 +576,7 @@ function Home() {
               to={`/books?category=${encodeURIComponent(c.name)}`}
               key={c.name}
             >
-              <span className="grid h-11 w-11 place-items-center rounded-2xl bg-white/70 text-xl shadow-sm">{c.icon}</span>
+              <span className="grid h-11 w-11 place-items-center rounded-2xl bg-[#f2edff]/70 text-xl shadow-sm">{c.icon}</span>
               <b className="text-lg font-extrabold tracking-tight">{c.name}</b>
               <ArrowRight size={17} />
             </Link>
@@ -605,7 +605,7 @@ function Home() {
           <label className="text-sm font-semibold leading-6 text-[#4c4c70]" htmlFor="newsletter-email">
             A little literary inspiration, every so often.
           </label>
-          <div className="mt-3 flex items-center gap-2 rounded-2xl border border-white/90 bg-white/80 p-1.5 shadow-sm backdrop-blur">
+          <div className="mt-3 flex items-center gap-2 rounded-2xl border border-white/90 bg-[#f2edff]/80 p-1.5 shadow-sm backdrop-blur">
             <input
               id="newsletter-email"
               required
@@ -617,7 +617,7 @@ function Home() {
               <ArrowRight size={20} />
             </button>
           </div>
-          <small className="mt-2 block text-xs text-[#74758f]">Just good reads. No clutter.</small>
+          <small className="mt-2 block text-xs text-[#514d78]">Just good reads. No clutter.</small>
         </form>
       </section>
     </>
@@ -632,7 +632,7 @@ function SectionHeading({ kicker, title, copy, action }) {
           {kicker}
         </div>
         <h2 className="max-w-[760px] font-display text-[clamp(30px,3.4vw,46px)] font-black leading-[1.08] tracking-[-.045em] text-[#222344]">{title}</h2>
-        {copy && <p className="mt-3 max-w-[620px] text-sm leading-6 text-[#777993]">{copy}</p>}
+        {copy && <p className="mt-3 max-w-[620px] text-sm leading-6 text-[#514d78]">{copy}</p>}
       </div>
       {action && <div className="[padding-bottom:5px]">{action}</div>}
     </div>
@@ -649,7 +649,7 @@ function Step({ num, icon, title, text }) {
       </span>
       <div>
         <h3 className="font-display text-base font-extrabold text-[#29294f]">{title}</h3>
-        <p className="mt-1 text-[13px] leading-6 text-[#777993]">{text}</p>
+        <p className="mt-1 text-[13px] leading-6 text-[#514d78]">{text}</p>
       </div>
     </div>
   );
@@ -769,18 +769,18 @@ function Browse({ onAddToCart }) {
           <br />
           <em>that feels like yours.</em>
         </h1>
-        <p className="text-[13px] leading-6 text-[#74758f]">
+        <p className="text-[13px] leading-6 text-[#514d78]">
           Browse the shelves of independent libraries and readers around you.
         </p>
       </div>
       <div className="flex flex-wrap items-center gap-3 border-t border-[#e8e8f4] py-5">
         <form
-          className="flex h-[50px] min-w-[260px] max-w-[650px] flex-1 items-center gap-3 rounded-2xl border border-[#e4e3f0] bg-white px-4 text-[#81839c] shadow-[0_6px_20px_rgba(58,53,113,.04)] transition focus-within:border-[#7868f4] focus-within:ring-4 focus-within:ring-[#7868f4]/10 max-[760px]:max-w-none"
+          className="flex h-[50px] min-w-[260px] max-w-[650px] flex-1 items-center gap-3 rounded-2xl border border-[#e4e3f0] bg-[#f2edff] px-4 text-[#57537a] shadow-[0_6px_20px_rgba(58,53,113,.04)] transition focus-within:border-[#7868f4] focus-within:ring-4 focus-within:ring-[#7868f4]/10 max-[760px]:max-w-none"
           onSubmit={submitSearch}
         >
           <Search className="shrink-0" size={19} />
           <input
-            className="h-full min-w-0 flex-1 border-0 bg-transparent p-0 text-sm text-[#29294f] outline-none ring-0 placeholder:text-[#a0a1b6] focus:border-0 focus:outline-none focus:ring-0"
+            className="h-full min-w-0 flex-1 border-0 bg-transparent p-0 text-sm text-[#29294f] outline-none ring-0 placeholder:text-[#69658c] focus:border-0 focus:outline-none focus:ring-0"
             value={query}
             onChange={(e) => setQuery(e.target.value)}
             placeholder="Search by title or author"
@@ -788,16 +788,16 @@ function Browse({ onAddToCart }) {
           <button className="shrink-0 rounded-xl bg-gradient-to-r from-[#7868f4] to-[#5b4be8] px-4 py-2.5 text-xs font-bold text-white shadow-sm transition hover:-translate-y-0.5 hover:shadow-md" type="submit">Search</button>
         </form>
         <button
-          className="inline-flex h-[50px] shrink-0 items-center justify-center gap-2.5 rounded-full border border-[#e7e4fb] bg-white px-5 text-sm font-extrabold text-[#5b4be8] shadow-[0_8px_24px_rgba(91,75,232,.1)] transition hover:-translate-y-0.5 hover:shadow-md max-[760px]:flex-1"
+          className="inline-flex h-[50px] shrink-0 items-center justify-center gap-2.5 rounded-full border border-[#e7e4fb] bg-[#f2edff] px-5 text-sm font-extrabold text-[#5b4be8] shadow-[0_8px_24px_rgba(91,75,232,.1)] transition hover:-translate-y-0.5 hover:shadow-md max-[760px]:flex-1"
           onClick={() => setFilterOpen(!filterOpen)}
         >
           <Filter size={16} /> Filters{" "}
           {filterOpen ? <X size={15} /> : <ChevronDown size={15} />}
         </button>
-        <label className="ml-auto flex items-center gap-2 text-xs font-semibold text-[#85869f] max-[760px]:ml-0 max-[760px]:flex-1 max-[760px]:justify-end">
+        <label className="ml-auto flex items-center gap-2 text-xs font-semibold text-[#58547d] max-[760px]:ml-0 max-[760px]:flex-1 max-[760px]:justify-end">
           <span>Sort</span>
           <select
-            className="min-w-[150px] rounded-xl border border-[#e4e3f0] bg-white px-3 py-2.5 text-xs font-semibold text-[#4c4d6b] outline-none focus:border-[#7868f4] focus:ring-4 focus:ring-[#7868f4]/10"
+            className="min-w-[150px] rounded-xl border border-[#e4e3f0] bg-[#f2edff] px-3 py-2.5 text-xs font-semibold text-[#49456f] outline-none focus:border-[#7868f4] focus:ring-4 focus:ring-[#7868f4]/10"
             value={params.get("sort") || "newest"}
             onChange={(e) => update("sort", e.target.value)}
           >
@@ -809,10 +809,10 @@ function Browse({ onAddToCart }) {
         </label>
       </div>
       {filterOpen && (
-        <div className="my-2 flex flex-wrap items-end gap-4 rounded-2xl border border-[#e8e6f5] bg-white p-5 shadow-sm max-[760px]:flex-col max-[760px]:items-stretch max-[760px]:gap-3">
-          <label className="flex min-w-[180px] flex-1 flex-col gap-2 text-xs font-bold text-[#656681]">
+        <div className="my-2 flex flex-wrap items-end gap-4 rounded-2xl border border-[#e8e6f5] bg-[#f2edff] p-5 shadow-sm max-[760px]:flex-col max-[760px]:items-stretch max-[760px]:gap-3">
+          <label className="flex min-w-[180px] flex-1 flex-col gap-2 text-xs font-bold text-[#4f4b75]">
             Category
-            <select className="w-full rounded-xl border border-[#e4e3f0] bg-[#fcfcff] px-3 py-3 text-sm font-medium text-[#4c4d6b] outline-none focus:border-[#7868f4] focus:ring-4 focus:ring-[#7868f4]/10"
+            <select className="w-full rounded-xl border border-[#e4e3f0] bg-[#eee9ff] px-3 py-3 text-sm font-medium text-[#49456f] outline-none focus:border-[#7868f4] focus:ring-4 focus:ring-[#7868f4]/10"
               value={params.get("category") || ""}
               onChange={(e) => update("category", e.target.value)}
             >
@@ -822,9 +822,9 @@ function Browse({ onAddToCart }) {
               ))}
             </select>
           </label>
-          <label className="flex min-w-[180px] flex-1 flex-col gap-2 text-xs font-bold text-[#656681]">
+          <label className="flex min-w-[180px] flex-1 flex-col gap-2 text-xs font-bold text-[#4f4b75]">
             Availability
-            <select className="w-full rounded-xl border border-[#e4e3f0] bg-[#fcfcff] px-3 py-3 text-sm font-medium text-[#4c4d6b] outline-none focus:border-[#7868f4] focus:ring-4 focus:ring-[#7868f4]/10"
+            <select className="w-full rounded-xl border border-[#e4e3f0] bg-[#eee9ff] px-3 py-3 text-sm font-medium text-[#49456f] outline-none focus:border-[#7868f4] focus:ring-4 focus:ring-[#7868f4]/10"
               value={params.get("availability") || ""}
               onChange={(e) => update("availability", e.target.value)}
             >
@@ -833,9 +833,9 @@ function Browse({ onAddToCart }) {
               <option value="checked_out">On loan</option>
             </select>
           </label>
-          <label className="flex min-w-[150px] flex-1 flex-col gap-2 text-xs font-bold text-[#656681]">
+          <label className="flex min-w-[150px] flex-1 flex-col gap-2 text-xs font-bold text-[#4f4b75]">
             Max delivery fee
-            <input className="w-full rounded-xl border border-[#e4e3f0] bg-[#fcfcff] px-3 py-3 text-sm font-medium text-[#4c4d6b] outline-none focus:border-[#7868f4] focus:ring-4 focus:ring-[#7868f4]/10"
+            <input className="w-full rounded-xl border border-[#e4e3f0] bg-[#eee9ff] px-3 py-3 text-sm font-medium text-[#49456f] outline-none focus:border-[#7868f4] focus:ring-4 focus:ring-[#7868f4]/10"
               type="number"
               min="0"
               value={params.get("maxFee") || ""}
@@ -1032,7 +1032,7 @@ function BookDetail({ user, onAddToCart }) {
             alt={`Cover of ${book.title}`}
             onError={(e) => (e.currentTarget.src = coverFallback)}
           />
-          <span className="absolute right-4 top-4 rounded-xl border border-white/70 bg-white/90 px-3 py-2.5 text-[9px] font-bold leading-[1.45] tracking-[.12em] text-[#5b4be8] shadow-lg backdrop-blur">
+          <span className="absolute right-4 top-4 rounded-xl border border-white/70 bg-[#f2edff]/90 px-3 py-2.5 text-[9px] font-bold leading-[1.45] tracking-[.12em] text-[#5b4be8] shadow-lg backdrop-blur">
             A LOCAL
             <br />
             FIND
@@ -1049,7 +1049,7 @@ function BookDetail({ user, onAddToCart }) {
           >
             by {book.author}
           </p>
-          <div className="flex flex-wrap items-center gap-x-4 gap-y-2 border-y border-[#e8e8f4] py-3 text-[11px] text-[#777993]">
+          <div className="flex flex-wrap items-center gap-x-4 gap-y-2 border-y border-[#e8e8f4] py-3 text-[11px] text-[#514d78]">
             <span className="[display:inline-flex] [align-items:center] [gap:5px] [color:#b48643] [font-weight:700]">
               <Star size={16} fill="currentColor" />
               {Number(ratingData.average || 0).toFixed(1)}
@@ -1068,11 +1068,11 @@ function BookDetail({ user, onAddToCart }) {
             </span>
           </div>
           {book.description?.trim() && (
-            <section className="my-5 rounded-2xl border border-[#eeedfa] bg-[#fbfaff] p-4">
-              <h2 className="text-xs font-extrabold uppercase tracking-[.08em] text-[#777794]">
+            <section className="my-5 rounded-2xl border border-[#eeedfa] bg-[#f1eaff] p-4">
+              <h2 className="text-xs font-extrabold uppercase tracking-[.08em] text-[#514d78]">
                 About this book
               </h2>
-              <p className="mt-2 break-words text-sm leading-6 text-[#555673]">
+              <p className="mt-2 break-words text-sm leading-6 text-[#47436c]">
                 {book.description}
               </p>
             </section>
@@ -1086,10 +1086,10 @@ function BookDetail({ user, onAddToCart }) {
           </div>
           <div className="my-6 grid grid-cols-2 items-center gap-4 border-y border-[#e8e8f4] py-4 max-[420px]:grid-cols-1">
             <div>
-              <small className="block text-xs font-semibold text-[#85869f]">Delivery fee</small>
+              <small className="block text-xs font-semibold text-[#58547d]">Delivery fee</small>
               <strong className="mt-1 block text-lg font-extrabold text-[#29294f]">{money(book.deliveryFee)}</strong>
             </div>
-            <span className="text-right text-sm font-semibold leading-5 text-[#555673] max-[420px]:text-left">
+            <span className="text-right text-sm font-semibold leading-5 text-[#47436c] max-[420px]:text-left">
               One-time secure payment
               <br />
               processed by Stripe
@@ -1151,7 +1151,7 @@ function BookDetail({ user, onAddToCart }) {
                     {"☆".repeat(5 - r.rating)}
                   </span>
                 </div>
-                <p className="text-[13px] leading-6 text-[#74758f]">{r.comment}</p>
+                <p className="text-[13px] leading-6 text-[#514d78]">{r.comment}</p>
               </article>
             ))
           ) : (
@@ -1170,7 +1170,7 @@ function BookDetail({ user, onAddToCart }) {
           onSubmit={review}
         >
           <h3 className="font-display text-lg font-extrabold leading-snug tracking-[-.02em] text-[#29294f]">Read it and loved it?</h3>
-          <p className="text-[13px] leading-6 text-[#74758f]">Reviews open once your delivery has been marked complete.</p>
+          <p className="text-[13px] leading-6 text-[#514d78]">Reviews open once your delivery has been marked complete.</p>
           <div className="[display:flex] [align-items:end] [gap:17px] max-[760px]:[align-items:stretch] max-[760px]:[flex-direction:column]">
             <label>
               Your rating
@@ -1266,7 +1266,7 @@ function AuthPage({ mode, setUser }) {
     }
   };
   return (
-    <div className="grid min-h-[660px] grid-cols-2 overflow-hidden bg-[#f8f8ff] max-[760px]:grid-cols-1">
+    <div className="grid min-h-[660px] grid-cols-2 overflow-hidden bg-[#e9e4ff] max-[760px]:grid-cols-1">
       <div className="relative min-h-[660px] overflow-hidden bg-[#29264f] max-[760px]:min-h-[240px]">
         <img className="absolute inset-0 h-full w-full object-cover" src="https://images.unsplash.com/photo-1524995997946-a1c2e315a42f?auto=format&fit=crop&w=1200&q=85" alt="A calm bookshop interior" />
         <div className="absolute inset-0 bg-gradient-to-t from-[#1b173dcc] via-[#1b173d22] to-transparent" />
@@ -1286,7 +1286,7 @@ function AuthPage({ mode, setUser }) {
           {isRegister ? "A PLACE FOR EVERY READER" : "BACK TO YOUR BOOKSHELF"}
         </div>
         <h1 className="font-display text-[clamp(30px,3.4vw,44px)] font-black leading-tight tracking-[-.045em] text-[#222344]">{isRegister ? "Find your next chapter." : "Welcome back."}</h1>
-        <p className="text-[13px] leading-6 text-[#74758f]">
+        <p className="text-[13px] leading-6 text-[#514d78]">
           {isRegister
             ? "Join readers and independent librarians bringing good books closer."
             : "Sign in to see what’s waiting on your shelf."}
@@ -1296,7 +1296,7 @@ function AuthPage({ mode, setUser }) {
           onSubmit={submit}
         >
           {isRegister && (
-            <label className="flex flex-col gap-2 text-xs font-semibold text-[#656681]">
+            <label className="flex flex-col gap-2 text-xs font-semibold text-[#4f4b75]">
               Your name
               <input
                 name="name"
@@ -1305,11 +1305,11 @@ function AuthPage({ mode, setUser }) {
                 required
                 minLength={2}
                 placeholder="Alex Reader"
-                className="w-full rounded-xl border border-[#e4e3f0] bg-white px-3.5 py-3 text-sm text-[#29294f] outline-none focus:border-[#7868f4] focus:ring-4 focus:ring-[#7868f4]/10"
+                className="w-full rounded-xl border border-[#e4e3f0] bg-[#f2edff] px-3.5 py-3 text-sm text-[#29294f] outline-none focus:border-[#7868f4] focus:ring-4 focus:ring-[#7868f4]/10"
               />
             </label>
           )}
-          <label className="flex flex-col gap-2 text-xs font-semibold text-[#656681]">
+          <label className="flex flex-col gap-2 text-xs font-semibold text-[#4f4b75]">
             Email address
             <input
               name="email"
@@ -1318,10 +1318,10 @@ function AuthPage({ mode, setUser }) {
               onChange={change}
               required
               placeholder="you@example.com"
-              className="w-full rounded-xl border border-[#e4e3f0] bg-white px-3.5 py-3 text-sm text-[#29294f] outline-none focus:border-[#7868f4] focus:ring-4 focus:ring-[#7868f4]/10"
+              className="w-full rounded-xl border border-[#e4e3f0] bg-[#f2edff] px-3.5 py-3 text-sm text-[#29294f] outline-none focus:border-[#7868f4] focus:ring-4 focus:ring-[#7868f4]/10"
             />
           </label>
-          <label className="flex flex-col gap-2 text-xs font-semibold text-[#656681]">
+          <label className="flex flex-col gap-2 text-xs font-semibold text-[#4f4b75]">
             Password
             <span className="relative block">
               <input
@@ -1334,11 +1334,11 @@ function AuthPage({ mode, setUser }) {
                 placeholder={
                   isRegister ? "At least 8 characters" : "Your password"
                 }
-                className="w-full rounded-xl border border-[#e4e3f0] bg-white px-3.5 py-3 pr-12 text-sm text-[#29294f] outline-none focus:border-[#7868f4] focus:ring-4 focus:ring-[#7868f4]/10"
+                className="w-full rounded-xl border border-[#e4e3f0] bg-[#f2edff] px-3.5 py-3 pr-12 text-sm text-[#29294f] outline-none focus:border-[#7868f4] focus:ring-4 focus:ring-[#7868f4]/10"
               />
               <button
                 type="button"
-                className="absolute inset-y-0 right-2 grid w-9 place-items-center rounded-lg text-[#85869f] transition hover:bg-[#f3f1ff] hover:text-[#5b4be8] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#7868f4]"
+                className="absolute inset-y-0 right-2 grid w-9 place-items-center rounded-lg text-[#58547d] transition hover:bg-[#f3f1ff] hover:text-[#5b4be8] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#7868f4]"
                 onClick={() => setShowPassword((visible) => !visible)}
                 aria-label={showPassword ? "Hide password" : "Show password"}
                 aria-pressed={showPassword}
@@ -1349,7 +1349,7 @@ function AuthPage({ mode, setUser }) {
           </label>
           {isRegister && (
             <>
-              <label className="flex flex-col gap-2 text-xs font-semibold text-[#656681]">
+              <label className="flex flex-col gap-2 text-xs font-semibold text-[#4f4b75]">
                 Confirm password
                 <span className="relative block">
                   <input
@@ -1357,11 +1357,11 @@ function AuthPage({ mode, setUser }) {
                     type={showConfirmPassword ? "text" : "password"}
                     required
                     placeholder="Enter it again"
-                    className="w-full rounded-xl border border-[#e4e3f0] bg-white px-3.5 py-3 pr-12 text-sm text-[#29294f] outline-none focus:border-[#7868f4] focus:ring-4 focus:ring-[#7868f4]/10"
+                    className="w-full rounded-xl border border-[#e4e3f0] bg-[#f2edff] px-3.5 py-3 pr-12 text-sm text-[#29294f] outline-none focus:border-[#7868f4] focus:ring-4 focus:ring-[#7868f4]/10"
                   />
                   <button
                     type="button"
-                    className="absolute inset-y-0 right-2 grid w-9 place-items-center rounded-lg text-[#85869f] transition hover:bg-[#f3f1ff] hover:text-[#5b4be8] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#7868f4]"
+                    className="absolute inset-y-0 right-2 grid w-9 place-items-center rounded-lg text-[#58547d] transition hover:bg-[#f3f1ff] hover:text-[#5b4be8] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#7868f4]"
                     onClick={() => setShowConfirmPassword((visible) => !visible)}
                     aria-label={showConfirmPassword ? "Hide confirm password" : "Show confirm password"}
                     aria-pressed={showConfirmPassword}
@@ -1370,18 +1370,18 @@ function AuthPage({ mode, setUser }) {
                   </button>
                 </span>
               </label>
-              <label className="flex flex-col gap-2 text-xs font-semibold text-[#656681]">
+              <label className="flex flex-col gap-2 text-xs font-semibold text-[#4f4b75]">
                 Profile photo (optional)
                 <input
                   type="file"
                   accept="image/*"
                   onChange={(e) => setAvatarFile(e.target.files?.[0] || null)}
-                  className="w-full rounded-xl border border-dashed border-[#d8d6ec] bg-white p-3 text-xs text-[#777993] file:mr-3 file:rounded-lg file:border-0 file:bg-[#ece9ff] file:px-3 file:py-2 file:text-xs file:font-bold file:text-[#5b4be8]"
+                  className="w-full rounded-xl border border-dashed border-[#d8d6ec] bg-[#f2edff] p-3 text-xs text-[#514d78] file:mr-3 file:rounded-lg file:border-0 file:bg-[#ece9ff] file:px-3 file:py-2 file:text-xs file:font-bold file:text-[#5b4be8]"
                 />
               </label>
-              <label className="flex flex-col gap-2 text-xs font-semibold text-[#656681]">
+              <label className="flex flex-col gap-2 text-xs font-semibold text-[#4f4b75]">
                 I’m joining as
-                <select className="w-full rounded-xl border border-[#e4e3f0] bg-white px-3.5 py-3 text-sm text-[#29294f] outline-none focus:border-[#7868f4] focus:ring-4 focus:ring-[#7868f4]/10" name="role" value={form.role} onChange={change}>
+                <select className="w-full rounded-xl border border-[#e4e3f0] bg-[#f2edff] px-3.5 py-3 text-sm text-[#29294f] outline-none focus:border-[#7868f4] focus:ring-4 focus:ring-[#7868f4]/10" name="role" value={form.role} onChange={change}>
                   <option value="user">A reader</option>
                   <option value="librarian">A librarian / book owner</option>
                 </select>
@@ -1405,13 +1405,13 @@ function AuthPage({ mode, setUser }) {
             <ArrowRight size={17} />
           </button>
         </form>
-        <div className="mt-5 text-center text-xs text-[#777993]">
+        <div className="mt-5 text-center text-xs text-[#514d78]">
           {isRegister ? "Already have a place here?" : "New around here?"}{" "}
           <Link className="font-bold text-[#5b4be8] hover:underline" to={isRegister ? "/login" : "/register"}>
             {isRegister ? "Log in" : "Create an account"}
           </Link>
         </div>
-        <div className="mt-6 flex items-center justify-center gap-2 text-[11px] text-[#9293a8]">
+        <div className="mt-6 flex items-center justify-center gap-2 text-[11px] text-[#615d83]">
           <Shield size={15} /> Your information is protected with secure
           sign-in.
         </div>
@@ -1489,7 +1489,7 @@ function PasswordPage({ mode }) {
         ACCOUNT HELP
       </div>
       <h1 className="font-display text-[clamp(30px,3.4vw,44px)] font-black leading-tight tracking-[-.045em] text-[#222344]">{reset ? "Choose a new password" : "Reset your password"}</h1>
-      <p className="text-[13px] leading-6 text-[#74758f]">
+      <p className="text-[13px] leading-6 text-[#514d78]">
         {done
           ? "You can continue to sign in."
           : reset
@@ -1600,7 +1600,7 @@ function ProfileSettings({ user, setUser }) {
   };
   return (
     <div className="grid grid-cols-2 items-start gap-6 max-[900px]:grid-cols-1">
-      <section className="w-full rounded-[24px] border border-[#ecebfa] bg-white p-6 shadow-[0_12px_30px_rgba(58,53,113,.06)] max-[760px]:rounded-[18px] max-[760px]:p-5">
+      <section className="w-full rounded-[24px] border border-[#ecebfa] bg-[#f2edff] p-6 shadow-[0_12px_30px_rgba(58,53,113,.06)] max-[760px]:rounded-[18px] max-[760px]:p-5">
         <div className="[margin-bottom:20px]">
           <div>
             <span className="[font-size:9px] [font-weight:700] [letter-spacing:1.7px] [color:#778176] [display:flex] [align-items:center] [gap:9px] [margin-bottom:17px]">
@@ -1608,7 +1608,7 @@ function ProfileSettings({ user, setUser }) {
               ACCOUNT DETAILS
             </span>
             <h3 className="font-display text-lg font-extrabold leading-snug tracking-[-.02em] text-[#29294f]">Edit your profile</h3>
-            <p className="text-[13px] leading-6 text-[#74758f]">
+            <p className="text-[13px] leading-6 text-[#514d78]">
               Update the name and photo shown across your BiblioDrop account.
             </p>
           </div>
@@ -1630,7 +1630,7 @@ function ProfileSettings({ user, setUser }) {
           className="flex max-w-none flex-col gap-4"
           onSubmit={saveProfile}
         >
-          <label className="flex flex-col gap-2 text-xs font-semibold text-[#656681]">
+          <label className="flex flex-col gap-2 text-xs font-semibold text-[#4f4b75]">
             Full name
             <input
               value={name}
@@ -1638,21 +1638,21 @@ function ProfileSettings({ user, setUser }) {
               required
               minLength={2}
               maxLength={80}
-              className="w-full rounded-xl border border-[#e4e3f0] bg-[#fcfcff] px-3.5 py-3 text-sm text-[#29294f] outline-none transition focus:border-[#7868f4] focus:ring-4 focus:ring-[#7868f4]/10"
+              className="w-full rounded-xl border border-[#e4e3f0] bg-[#eee9ff] px-3.5 py-3 text-sm text-[#29294f] outline-none transition focus:border-[#7868f4] focus:ring-4 focus:ring-[#7868f4]/10"
             />
           </label>
-          <label className="flex flex-col gap-2 text-xs font-semibold text-[#656681]">
+          <label className="flex flex-col gap-2 text-xs font-semibold text-[#4f4b75]">
             Email address
             <input
               type="email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               required
-              className="w-full rounded-xl border border-[#e4e3f0] bg-[#fcfcff] px-3.5 py-3 text-sm text-[#29294f] outline-none transition focus:border-[#7868f4] focus:ring-4 focus:ring-[#7868f4]/10"
+              className="w-full rounded-xl border border-[#e4e3f0] bg-[#eee9ff] px-3.5 py-3 text-sm text-[#29294f] outline-none transition focus:border-[#7868f4] focus:ring-4 focus:ring-[#7868f4]/10"
             />
           </label>
           {email.toLowerCase() !== user.email.toLowerCase() && (
-            <label className="flex flex-col gap-2 text-xs font-semibold text-[#656681]">
+            <label className="flex flex-col gap-2 text-xs font-semibold text-[#4f4b75]">
               Current password (to verify email change)
               <input
                 type="password"
@@ -1660,17 +1660,17 @@ function ProfileSettings({ user, setUser }) {
                 onChange={(e) => setProfilePassword(e.target.value)}
                 required
                 autoComplete="current-password"
-                className="w-full rounded-xl border border-[#e4e3f0] bg-[#fcfcff] px-3.5 py-3 text-sm text-[#29294f] outline-none transition focus:border-[#7868f4] focus:ring-4 focus:ring-[#7868f4]/10"
+                className="w-full rounded-xl border border-[#e4e3f0] bg-[#eee9ff] px-3.5 py-3 text-sm text-[#29294f] outline-none transition focus:border-[#7868f4] focus:ring-4 focus:ring-[#7868f4]/10"
               />
             </label>
           )}
-          <label className="flex flex-col gap-2 text-xs font-semibold text-[#656681]">
+          <label className="flex flex-col gap-2 text-xs font-semibold text-[#4f4b75]">
             Profile photo
             <input
               type="file"
               accept="image/jpeg,image/png,image/webp,image/gif"
               onChange={(e) => setFile(e.target.files?.[0] || null)}
-              className="w-full cursor-pointer rounded-xl border border-dashed border-[#d8d6ec] bg-[#fcfcff] p-3 text-xs text-[#777993] file:mr-3 file:rounded-lg file:border-0 file:bg-[#ece9ff] file:px-3 file:py-2 file:text-xs file:font-bold file:text-[#5b4be8]"
+              className="w-full cursor-pointer rounded-xl border border-dashed border-[#d8d6ec] bg-[#eee9ff] p-3 text-xs text-[#514d78] file:mr-3 file:rounded-lg file:border-0 file:bg-[#ece9ff] file:px-3 file:py-2 file:text-xs file:font-bold file:text-[#5b4be8]"
             />
           </label>
           <button
@@ -1681,7 +1681,7 @@ function ProfileSettings({ user, setUser }) {
           </button>
         </form>
       </section>
-      <section className="w-full rounded-[24px] border border-[#ecebfa] bg-white p-6 shadow-[0_12px_30px_rgba(58,53,113,.06)] max-[760px]:rounded-[18px] max-[760px]:p-5">
+      <section className="w-full rounded-[24px] border border-[#ecebfa] bg-[#f2edff] p-6 shadow-[0_12px_30px_rgba(58,53,113,.06)] max-[760px]:rounded-[18px] max-[760px]:p-5">
         <div className="[margin-bottom:20px]">
           <div>
             <span className="[font-size:9px] [font-weight:700] [letter-spacing:1.7px] [color:#778176] [display:flex] [align-items:center] [gap:9px] [margin-bottom:17px]">
@@ -1689,14 +1689,14 @@ function ProfileSettings({ user, setUser }) {
               ACCOUNT SECURITY
             </span>
             <h3 className="font-display text-lg font-extrabold leading-snug tracking-[-.02em] text-[#29294f]">Change password</h3>
-            <p className="text-[13px] leading-6 text-[#74758f]">Choose a new password with at least 8 characters.</p>
+            <p className="text-[13px] leading-6 text-[#514d78]">Choose a new password with at least 8 characters.</p>
           </div>
         </div>
         <form
           className="flex max-w-none flex-col gap-4"
           onSubmit={changePassword}
         >
-          <label className="flex flex-col gap-2 text-xs font-semibold text-[#656681]">
+          <label className="flex flex-col gap-2 text-xs font-semibold text-[#4f4b75]">
             Current password
             <input
               type="password"
@@ -1704,10 +1704,10 @@ function ProfileSettings({ user, setUser }) {
               onChange={(e) => setCurrentPassword(e.target.value)}
               required
               autoComplete="current-password"
-              className="w-full rounded-xl border border-[#e4e3f0] bg-[#fcfcff] px-3.5 py-3 text-sm text-[#29294f] outline-none transition focus:border-[#7868f4] focus:ring-4 focus:ring-[#7868f4]/10"
+              className="w-full rounded-xl border border-[#e4e3f0] bg-[#eee9ff] px-3.5 py-3 text-sm text-[#29294f] outline-none transition focus:border-[#7868f4] focus:ring-4 focus:ring-[#7868f4]/10"
             />
           </label>
-          <label className="flex flex-col gap-2 text-xs font-semibold text-[#656681]">
+          <label className="flex flex-col gap-2 text-xs font-semibold text-[#4f4b75]">
             New password
             <input
               type="password"
@@ -1716,10 +1716,10 @@ function ProfileSettings({ user, setUser }) {
               required
               minLength={8}
               autoComplete="new-password"
-              className="w-full rounded-xl border border-[#e4e3f0] bg-[#fcfcff] px-3.5 py-3 text-sm text-[#29294f] outline-none transition focus:border-[#7868f4] focus:ring-4 focus:ring-[#7868f4]/10"
+              className="w-full rounded-xl border border-[#e4e3f0] bg-[#eee9ff] px-3.5 py-3 text-sm text-[#29294f] outline-none transition focus:border-[#7868f4] focus:ring-4 focus:ring-[#7868f4]/10"
             />
           </label>
-          <label className="flex flex-col gap-2 text-xs font-semibold text-[#656681]">
+          <label className="flex flex-col gap-2 text-xs font-semibold text-[#4f4b75]">
             Confirm new password
             <input
               type="password"
@@ -1728,7 +1728,7 @@ function ProfileSettings({ user, setUser }) {
               required
               minLength={8}
               autoComplete="new-password"
-              className="w-full rounded-xl border border-[#e4e3f0] bg-[#fcfcff] px-3.5 py-3 text-sm text-[#29294f] outline-none transition focus:border-[#7868f4] focus:ring-4 focus:ring-[#7868f4]/10"
+              className="w-full rounded-xl border border-[#e4e3f0] bg-[#eee9ff] px-3.5 py-3 text-sm text-[#29294f] outline-none transition focus:border-[#7868f4] focus:ring-4 focus:ring-[#7868f4]/10"
             />
           </label>
           <button
@@ -1849,13 +1849,13 @@ function CartPage({ cart, setCart, user }) {
           <div className="grid min-w-0 gap-3">
             {cart.map((book) => (
               <article
-                className="flex min-w-0 items-center gap-4 rounded-2xl border border-[#e8e8f4] bg-white p-4 shadow-[0_8px_24px_rgba(58,53,113,.05)] max-[520px]:gap-3 max-[520px]:p-3"
+                className="flex min-w-0 items-center gap-4 rounded-2xl border border-[#e8e8f4] bg-[#f2edff] p-4 shadow-[0_8px_24px_rgba(58,53,113,.05)] max-[520px]:gap-3 max-[520px]:p-3"
                 key={book._id}
               >
                 <img className="h-[112px] w-[82px] shrink-0 rounded-xl object-cover shadow-sm max-[520px]:h-24 max-[520px]:w-[70px]" src={book.coverUrl || coverFallback} alt={`Cover of ${book.title}`} />
                 <div className="min-w-0 flex-1">
                   <b className="block truncate font-display text-base font-extrabold text-[#29294f]">{book.title}</b>
-                  <small className="mt-1 block truncate text-xs text-[#85869f]">by {book.author}</small>
+                  <small className="mt-1 block truncate text-xs text-[#58547d]">by {book.author}</small>
                   <span className="mt-3 inline-flex rounded-full bg-[#f3f0ff] px-2.5 py-1 text-xs font-bold text-[#6356c7]">{money(book.deliveryFee)} delivery</span>
                 </div>
                 <button
@@ -1869,7 +1869,7 @@ function CartPage({ cart, setCart, user }) {
               </article>
             ))}
           </div>
-          <div className="grid min-w-0 gap-4 rounded-[24px] border border-[#ecebfa] bg-white p-6 shadow-[0_12px_30px_rgba(58,53,113,.06)] max-[760px]:rounded-[18px] max-[760px]:p-5">
+          <div className="grid min-w-0 gap-4 rounded-[24px] border border-[#ecebfa] bg-[#f2edff] p-6 shadow-[0_12px_30px_rgba(58,53,113,.06)] max-[760px]:rounded-[18px] max-[760px]:p-5">
             <h2 className="font-display text-[clamp(24px,2.5vw,34px)] font-extrabold leading-tight tracking-[-.04em] text-[#29294f]">Delivery location</h2>
             {locating ? (
               <div className="">
@@ -1909,7 +1909,7 @@ function CartPage({ cart, setCart, user }) {
               © OpenStreetMap contributors. If no street address is available,
               delivery uses your GPS pin.
             </p>
-            <strong className="flex items-center justify-between rounded-xl bg-[#f8f7ff] px-4 py-3 text-sm font-extrabold text-[#302d61]">
+            <strong className="flex items-center justify-between rounded-xl bg-[#eae6ff] px-4 py-3 text-sm font-extrabold text-[#302d61]">
               Total delivery fee:{" "}
               {money(
                 cart.reduce((sum, b) => sum + Number(b.deliveryFee || 0), 0),
@@ -1961,7 +1961,7 @@ function PaymentCancel({ user }) {
         CHECKOUT
       </div>
       <h1 className="font-display text-[clamp(30px,3.4vw,44px)] font-black leading-tight tracking-[-.045em] text-[#222344]">Payment update</h1>
-      <p className="text-[13px] leading-6 text-[#74758f]">{message}</p>
+      <p className="text-[13px] leading-6 text-[#514d78]">{message}</p>
       <div className="[display:flex] [align-items:center] [gap:23px] [margin:16px_0] max-[760px]:[flex-direction:column]">
         {user && (
           <Link
@@ -2050,7 +2050,7 @@ function PaymentSuccess({ user, setCart }) {
           </>
         )}
       </h1>
-      <p className="text-[13px] leading-6 text-[#74758f]">{message}</p>
+      <p className="text-[13px] leading-6 text-[#514d78]">{message}</p>
       {ready && orderNumber && (
         <p
           className={`${"[padding:10px_18px] [background:#f4efe1] [border-radius:30px] [color:#684736]"}`}
@@ -2177,21 +2177,21 @@ function Dashboard({ user, setUser }) {
     );
   return (
     <div className="grid min-h-[calc(100vh-78px)] grid-cols-[255px_minmax(0,1fr)] items-start bg-[radial-gradient(ellipse_at_83%_10%,#f0edff_0,transparent_34rem),#f7f8ff] max-[760px]:block">
-      <aside className="fixed left-0 top-[78px] z-30 flex h-[calc(100vh-78px)] w-[255px] min-h-0 flex-col overflow-y-auto border-r border-[#e9e7fb] bg-white/90 px-[18px] py-[27px] shadow-[7px_0_25px_rgba(61,56,122,.04)] backdrop-blur-[14px] max-[760px]:sticky max-[760px]:top-[70px] max-[760px]:z-[25] max-[760px]:block max-[760px]:h-auto max-[760px]:max-h-none max-[760px]:min-h-0 max-[760px]:w-full max-[760px]:overflow-x-auto max-[760px]:overflow-y-hidden max-[760px]:whitespace-nowrap max-[760px]:rounded-b-[18px] max-[760px]:border-0 max-[760px]:border-b max-[760px]:px-3.5 max-[760px]:py-2 max-[760px]:bg-white/95">
+      <aside className="fixed left-0 top-[78px] z-30 flex h-[calc(100vh-78px)] w-[255px] min-h-0 flex-col overflow-y-auto border-r border-violet-200/20 bg-gradient-to-b from-[#392d84] via-[#4a368f] to-[#673b93] px-[18px] py-[27px] text-white shadow-[7px_0_25px_rgba(61,45,122,.18)] max-[760px]:sticky max-[760px]:top-[70px] max-[760px]:z-[25] max-[760px]:block max-[760px]:h-auto max-[760px]:max-h-none max-[760px]:min-h-0 max-[760px]:w-full max-[760px]:overflow-x-auto max-[760px]:overflow-y-hidden max-[760px]:whitespace-nowrap max-[760px]:rounded-b-[18px] max-[760px]:border-0 max-[760px]:border-b max-[760px]:px-3.5 max-[760px]:py-2">
         <div className="mb-2 flex items-center gap-3 rounded-[20px] border border-[#eeeaff] bg-gradient-to-r from-[#f3f0ff] to-[#fff3f7] px-4 py-3.5 max-[760px]:hidden">
           <span className="grid h-10 w-10 shrink-0 place-items-center rounded-full bg-[#e9e6ff] font-display text-sm font-black text-[#5b4be8]">{user.name?.[0]?.toUpperCase()}</span>
           <div className="min-w-0">
             <b className="block truncate text-sm font-extrabold text-[#29294f]">{user.name}</b>
-            <small className="mt-0.5 block text-[10px] font-semibold text-[#85869f]">{roleLabel(user.role)}</small>
+            <small className="mt-0.5 block text-[10px] font-semibold text-[#58547d]">{roleLabel(user.role)}</small>
           </div>
         </div>
-        <div className="[font-size:8px] [letter-spacing:1.5px] [color:#9b9ab8] [margin:23px_8px_10px] [font-weight:800] max-[760px]:[display:none]">
+        <div className="[font-size:10px] [letter-spacing:1.5px] [color:#d8ceff] [margin:23px_8px_10px] [font-weight:800] max-[760px]:[display:none]">
           YOUR SPACE
         </div>
         {tabs.map((t) => (
           <button
             key={t}
-            className={`${tab === t ? "[display:flex] [align-items:center] [gap:11px] [width:100%] [padding:12px_13px] [background:transparent] [border:0] [border-radius:14px] [text-align:left] [color:#666887] [font-size:11px] [margin:4px_0] [position:relative] [transition:background_0.18s_ease,_color_0.18s_ease,_transform_0.18s_ease] [font-weight:700] max-[760px]:[display:inline-flex] max-[760px]:[width:auto] max-[760px]:[margin:0_5px_0_0] max-[760px]:[padding:9px_12px] max-[760px]:[font-size:9px] max-[760px]:[border-radius:999px] max-[760px]:[background:#f6f5ff] hover:[background:#f2f0ff] hover:[color:#5143d2] hover:[transform:translateX(2px)] max-[760px]:hover:[transform:none] [color:#5143d2] [font-weight:700] [background:linear-gradient(100deg,_#ebe8ff,_#f4f1ff)] [box-shadow:inset_3px_0_#7262ed] max-[760px]:[background:#e9e6ff]" : "[display:flex] [align-items:center] [gap:11px] [width:100%] [padding:12px_13px] [background:transparent] [border:0] [border-radius:14px] [text-align:left] [color:#666887] [font-size:11px] [margin:4px_0] [position:relative] [transition:background_0.18s_ease,_color_0.18s_ease,_transform_0.18s_ease] [font-weight:700] max-[760px]:[display:inline-flex] max-[760px]:[width:auto] max-[760px]:[margin:0_5px_0_0] max-[760px]:[padding:9px_12px] max-[760px]:[font-size:9px] max-[760px]:[border-radius:999px] max-[760px]:[background:#f6f5ff] hover:[background:#f2f0ff] hover:[color:#5143d2] hover:[transform:translateX(2px)] max-[760px]:hover:[transform:none]"}`}
+            className={`${tab === t ? "[display:flex] [align-items:center] [gap:11px] [width:100%] [padding:12px_13px] [background:transparent] [border:0] [border-radius:14px] [text-align:left] [color:#f5f1ff] [font-size:12px] [margin:4px_0] [position:relative] [transition:background_0.18s_ease,_color_0.18s_ease,_transform_0.18s_ease] [font-weight:700] max-[760px]:[display:inline-flex] max-[760px]:[width:auto] max-[760px]:[margin:0_5px_0_0] max-[760px]:[padding:9px_12px] max-[760px]:[font-size:12px] max-[760px]:[border-radius:999px] max-[760px]:[background:#ffffff1f] hover:[background:#ffffff26] hover:[color:white] hover:[transform:translateX(2px)] max-[760px]:hover:[transform:none] [color:#5143d2] [font-weight:700] [background:linear-gradient(100deg,_#ebe8ff,_#f4f1ff)] [box-shadow:inset_3px_0_#7262ed] max-[760px]:[background:#e9e6ff]" : "[display:flex] [align-items:center] [gap:11px] [width:100%] [padding:12px_13px] [background:transparent] [border:0] [border-radius:14px] [text-align:left] [color:#f5f1ff] [font-size:12px] [margin:4px_0] [position:relative] [transition:background_0.18s_ease,_color_0.18s_ease,_transform_0.18s_ease] [font-weight:700] max-[760px]:[display:inline-flex] max-[760px]:[width:auto] max-[760px]:[margin:0_5px_0_0] max-[760px]:[padding:9px_12px] max-[760px]:[font-size:12px] max-[760px]:[border-radius:999px] max-[760px]:[background:#ffffff1f] hover:[background:#ffffff26] hover:[color:white] hover:[transform:translateX(2px)] max-[760px]:hover:[transform:none]"}`}
             onClick={() => {
               setTab(t);
               nav(`/dashboard/${role}?tab=${t}`, {
@@ -2204,7 +2204,7 @@ function Dashboard({ user, setUser }) {
           </button>
         ))}
         <Link
-          className="[display:flex] [align-items:center] [gap:8px] [font-size:9px] [color:#716f94] [border-top:1px_solid_#d6dbd1] [margin-top:auto] [padding:20px_7px] [border-color:#eeedfa] max-[760px]:[display:none]"
+          className="[display:flex] [align-items:center] [gap:8px] [font-size:12px] [font-weight:600] [color:#f0eaff] [border-top:1px_solid_rgb(255_255_255_/_22%)] [margin-top:auto] [padding:20px_7px] max-[760px]:[display:none]"
           to="/"
         >
           <ArrowRight size={15} /> Back to BiblioDrop
@@ -2257,7 +2257,7 @@ function Dashboard({ user, setUser }) {
               <div className="[display:flex] [justify-content:space-between] [align-items:center] [margin-bottom:15px]">
                 <div>
                   <h3 className="font-display text-lg font-extrabold leading-snug tracking-[-.02em] text-[#29294f]">Orders to fulfill</h3>
-                  <p className="text-[13px] leading-6 text-[#74758f]">Orders placed for books from your library.</p>
+                  <p className="text-[13px] leading-6 text-[#514d78]">Orders placed for books from your library.</p>
                 </div>
               </div>
               <DeliveryTable
@@ -2270,7 +2270,7 @@ function Dashboard({ user, setUser }) {
               <div className="[display:flex] [justify-content:space-between] [align-items:center] [margin-bottom:15px]">
                 <div>
                   <h3 className="font-display text-lg font-extrabold leading-snug tracking-[-.02em] text-[#29294f]">Orders you placed</h3>
-                  <p className="text-[13px] leading-6 text-[#74758f]">Track books you ordered as a reader.</p>
+                  <p className="text-[13px] leading-6 text-[#514d78]">Track books you ordered as a reader.</p>
                 </div>
               </div>
               <DeliveryTable rows={data?.customerOrders || []} />
@@ -2373,14 +2373,14 @@ function Overview({ role, data, onUpdate }) {
           <div className="[display:flex] [justify-content:space-between] [align-items:center] [margin-bottom:15px]">
             <div>
               <h3 className="font-display text-lg font-extrabold leading-snug tracking-[-.02em] text-[#29294f]">Your latest deliveries</h3>
-              <p className="text-[13px] leading-6 text-[#74758f]">Every good read has a journey.</p>
+              <p className="text-[13px] leading-6 text-[#514d78]">Every good read has a journey.</p>
             </div>
           </div>
           <DeliveryTable rows={(data.deliveries || []).slice(0, 5)} compact />
         </div>
         <div className="[position:relative] [background:rgb(255_255_255_/_91%)] [padding:22px_25px_20px_60px] [color:#5b4be8] [border:1px_solid_#eeedfa] [border-radius:22px] [box-shadow:0_12px_30px_rgb(58_53_113_/_6%)] max-[760px]:[padding:18px_17px_18px_50px]">
           <span>“</span>
-          <p className="text-[13px] leading-6 text-[#74758f]">
+          <p className="text-[13px] leading-6 text-[#514d78]">
             Reading is a conversation. All books talk. But a good book listens
             as well.
           </p>
@@ -2415,7 +2415,7 @@ function Overview({ role, data, onUpdate }) {
           <div className="[display:flex] [justify-content:space-between] [align-items:center] [margin-bottom:15px]">
             <div>
               <h3 className="font-display text-lg font-extrabold leading-snug tracking-[-.02em] text-[#29294f]">Your bookshelves</h3>
-              <p className="text-[13px] leading-6 text-[#74758f]">Recent listings and their approval status.</p>
+              <p className="text-[13px] leading-6 text-[#514d78]">Recent listings and their approval status.</p>
             </div>
           </div>
           <Inventory books={(data.books || []).slice(0, 6)} />
@@ -2424,7 +2424,7 @@ function Overview({ role, data, onUpdate }) {
           <div className="[display:flex] [justify-content:space-between] [align-items:center] [margin-bottom:15px]">
             <div>
               <h3 className="font-display text-lg font-extrabold leading-snug tracking-[-.02em] text-[#29294f]">Recent orders</h3>
-              <p className="text-[13px] leading-6 text-[#74758f]">Track each order and update its delivery progress.</p>
+              <p className="text-[13px] leading-6 text-[#514d78]">Track each order and update its delivery progress.</p>
             </div>
           </div>
           <DeliveryTable
@@ -2437,14 +2437,14 @@ function Overview({ role, data, onUpdate }) {
           <div className="[display:flex] [justify-content:space-between] [align-items:center] [margin-bottom:15px]">
             <div>
               <h3 className="font-display text-lg font-extrabold leading-snug tracking-[-.02em] text-[#29294f]">Orders you placed</h3>
-              <p className="text-[13px] leading-6 text-[#74758f]">Your customer orders and delivery progress.</p>
+              <p className="text-[13px] leading-6 text-[#514d78]">Your customer orders and delivery progress.</p>
             </div>
           </div>
           <DeliveryTable rows={(data.customerOrders || []).slice(0, 5)} />
         </div>
         <div className="[position:relative] [background:rgb(255_255_255_/_91%)] [padding:22px_25px_20px_60px] [color:#5b4be8] [border:1px_solid_#eeedfa] [border-radius:22px] [box-shadow:0_12px_30px_rgb(58_53_113_/_6%)] max-[760px]:[padding:18px_17px_18px_50px]">
           <span>✳</span>
-          <p className="text-[13px] leading-6 text-[#74758f]">A book is a gift you can open again and again.</p>
+          <p className="text-[13px] leading-6 text-[#514d78]">A book is a gift you can open again and again.</p>
           <small>— GARRISON KEILLOR</small>
         </div>
       </>
@@ -2493,7 +2493,7 @@ function Overview({ role, data, onUpdate }) {
         <div className="[display:flex] [justify-content:space-between] [align-items:center] [margin-bottom:15px]">
           <div>
             <h3 className="font-display text-lg font-extrabold leading-snug tracking-[-.02em] text-[#29294f]">The shape of the shelves</h3>
-            <p className="text-[13px] leading-6 text-[#74758f]">Listings by category across BiblioDrop.</p>
+            <p className="text-[13px] leading-6 text-[#514d78]">Listings by category across BiblioDrop.</p>
           </div>
         </div>
         {pie.length ? (
@@ -2568,13 +2568,13 @@ function OrderProgress({ status }) {
   const activeLabel =
     status === "returned" ? "Returned" : steps[Math.max(current, 0)][1];
   return (
-    <div className="my-2.5 min-w-[280px] rounded-2xl bg-[#f8f8ff] px-4 py-3">
+    <div className="my-2.5 min-w-[280px] rounded-2xl bg-[#e9e4ff] px-4 py-3">
       <div className="mb-3 flex items-center justify-between gap-3">
-        <span className="text-[11px] font-semibold text-[#777993]">Delivery progress</span>
+        <span className="text-[11px] font-semibold text-[#514d78]">Delivery progress</span>
         <b className={`rounded-full px-2.5 py-1 text-[10px] font-bold ${status === "returned" ? "bg-[#fff0f3] text-[#bd506b]" : status === "delivered" ? "bg-[#e2f7ef] text-[#25866e]" : "bg-[#ece9ff] text-[#5b4be8]"}`}>{activeLabel}</b>
       </div>
       {status === "returned" ? (
-        <p className="rounded-xl bg-white px-3 py-2 text-[11px] leading-5 text-[#777993]">This order was returned.</p>
+        <p className="rounded-xl bg-[#f2edff] px-3 py-2 text-[11px] leading-5 text-[#514d78]">This order was returned.</p>
       ) : (
         <div className="relative grid grid-cols-5 gap-1" role="progressbar" aria-label={`Order status: ${activeLabel}`} aria-valuemin="0" aria-valuemax="100" aria-valuenow={Math.round(percent)}>
           <div className="absolute left-[10%] right-[10%] top-[11px] h-1 rounded-full bg-[#e6e4f3]" />
@@ -2582,7 +2582,7 @@ function OrderProgress({ status }) {
           {steps.map(([key, label], i) => {
             const done = i <= current;
             return <div className="relative z-10 flex flex-col items-center gap-1.5 text-center" key={key}>
-              <i className={`grid h-[23px] w-[23px] place-items-center rounded-full border-2 text-[9px] not-italic ${done ? "border-[#7868f4] bg-[#7868f4] font-bold text-white" : "border-[#dedbed] bg-white text-[#9998af]"}`}>{i < current ? "✓" : i + 1}</i>
+              <i className={`grid h-[23px] w-[23px] place-items-center rounded-full border-2 text-[9px] not-italic ${done ? "border-[#7868f4] bg-[#7868f4] font-bold text-white" : "border-[#dedbed] bg-[#f2edff] text-[#9998af]"}`}>{i < current ? "✓" : i + 1}</i>
               <span className={`text-[8px] leading-3 ${i === current ? "font-bold text-[#5143d2]" : "text-[#9696ad]"}`}>{label}</span>
             </div>;
           })}
@@ -2648,10 +2648,10 @@ function DeliveryTable({
     );
   return (
     <>
-      <div className="mb-4 flex items-center gap-3 rounded-2xl border border-[#e8e8f4] bg-white px-4 py-3 text-[#81839c] shadow-[0_4px_14px_rgba(45,65,48,.035)]">
+      <div className="mb-4 flex items-center gap-3 rounded-2xl border border-[#e8e8f4] bg-[#f2edff] px-4 py-3 text-[#57537a] shadow-[0_4px_14px_rgba(45,65,48,.035)]">
         <Search className="shrink-0" size={18} />
         <input
-          className="min-w-0 flex-1 border-0 bg-transparent text-sm text-[#29294f] outline-none placeholder:text-[#a0a1b6]"
+          className="min-w-0 flex-1 border-0 bg-transparent text-sm text-[#29294f] outline-none placeholder:text-[#69658c]"
           value={query}
           onChange={(e) => setQuery(e.target.value)}
           placeholder="Search by order number, reader or book"
@@ -2664,11 +2664,11 @@ function DeliveryTable({
           copy="Check the order number or search term."
         />
       ) : (
-        <div className="w-full max-w-full overflow-x-auto overscroll-x-contain rounded-[20px] border border-[#ecebfa] bg-white shadow-[0_10px_24px_rgba(58,53,113,.06)]">
+        <div className="w-full max-w-full overflow-x-auto overscroll-x-contain rounded-[20px] border border-[#ecebfa] bg-[#f2edff] shadow-[0_10px_24px_rgba(58,53,113,.06)]">
           <table
-            className={`w-full ${admin ? "min-w-[1450px]" : "min-w-[1120px]"} table-fixed border-collapse text-left text-[13px] text-[#494a68]`}
+            className={`w-full ${admin ? "min-w-[1450px]" : "min-w-[1120px]"} table-fixed border-collapse text-left text-[13px] text-[#49456f]`}
           >
-            <thead className="bg-[#f8f7ff] text-[11px] font-bold uppercase tracking-[.08em] text-[#777794]">
+            <thead className="bg-[#eae6ff] text-[11px] font-bold uppercase tracking-[.08em] text-[#514d78]">
               <tr className="border-b border-[#ecebfa]">
                 <th className={`${admin ? "w-[12%]" : "w-[13%]"} px-4 py-4`}>Book</th>
                 <th className={`${admin ? "w-[12%]" : "w-[13%]"} px-4 py-4`}>{librarian ? "Reader" : "Ordered"}</th>
@@ -2683,11 +2683,11 @@ function DeliveryTable({
             </thead>
             <tbody>
               {filtered.map((d) => (
-                <tr className="border-b border-[#f0eff8] align-top transition-colors last:border-0 hover:bg-[#fcfbff]" key={d._id}>
+                <tr className="border-b border-[#f0eff8] align-top transition-colors last:border-0 hover:bg-[#eee9ff]" key={d._id}>
                   <td className="px-4 py-4 font-semibold text-[#29294f]">
                     <b className="block leading-5">{d.book?.title || "Book"}</b>
                     {librarian && (
-                      <small className="mt-1 block break-words text-[10px] font-normal leading-4 text-[#898aa1]">
+                      <small className="mt-1 block break-words text-[10px] font-normal leading-4 text-[#5b5780]">
                         {d.reader?.name} · {d.reader?.email}
                       </small>
                     )}
@@ -2698,7 +2698,7 @@ function DeliveryTable({
                       : new Date(d.createdAt).toLocaleDateString()}
                   </td>
                   {admin && (
-                    <td className="whitespace-nowrap px-4 py-4 text-xs text-[#777993]">
+                    <td className="whitespace-nowrap px-4 py-4 text-xs text-[#514d78]">
                       {new Date(d.createdAt).toLocaleDateString()}
                     </td>
                   )}
@@ -2733,7 +2733,7 @@ function DeliveryTable({
                     {!!d.trackingEvents?.length && (
                       <div className="mt-2 grid grid-cols-2 gap-2 max-[760px]:grid-cols-1">
                         {d.trackingEvents.slice(-2).map((event, i) => (
-                          <small className="min-w-0 rounded-lg bg-[#f8f8fc] px-2.5 py-2 text-[10px] leading-4 text-[#777993]" key={i}>
+                          <small className="min-w-0 rounded-lg bg-[#f8f8fc] px-2.5 py-2 text-[10px] leading-4 text-[#514d78]" key={i}>
                             {new Date(event.createdAt).toLocaleDateString()} ·{" "}
                             {event.note || event.status}
                           </small>
@@ -2774,7 +2774,7 @@ function DeliveryTable({
           onMouseDown={(e) => e.target === e.currentTarget && setEditing(null)}
         >
           <form
-          className="relative grid max-h-[90vh] w-full max-w-[560px] gap-5 overflow-y-auto rounded-[28px] border border-white/80 bg-white p-8 shadow-[0_28px_80px_rgba(28,26,69,.25)] max-[760px]:gap-4 max-[760px]:rounded-[24px] max-[760px]:p-5"
+          className="relative grid max-h-[90vh] w-full max-w-[560px] gap-5 overflow-y-auto rounded-[28px] border border-white/80 bg-[#f2edff] p-8 shadow-[0_28px_80px_rgba(28,26,69,.25)] max-[760px]:gap-4 max-[760px]:rounded-[24px] max-[760px]:p-5"
             onSubmit={save}
           >
             <button
@@ -2790,10 +2790,10 @@ function DeliveryTable({
             </div>
             <h2 className="font-display text-[clamp(24px,2.5vw,34px)] font-extrabold leading-tight tracking-[-.04em] text-[#29294f]">{editing.orderNumber || "Order tracking"}</h2>
             <OrderProgress status={editing.status} />
-            <label className="flex flex-col gap-2 text-xs font-bold text-[#555673]">
+            <label className="flex flex-col gap-2 text-xs font-bold text-[#47436c]">
               Next delivery step
               <select
-                className="w-full rounded-xl border border-[#e4e3f0] bg-[#fcfcff] px-3.5 py-3 text-sm font-medium text-[#29294f] outline-none transition focus:border-[#7868f4] focus:ring-4 focus:ring-[#7868f4]/10"
+                className="w-full rounded-xl border border-[#e4e3f0] bg-[#eee9ff] px-3.5 py-3 text-sm font-medium text-[#29294f] outline-none transition focus:border-[#7868f4] focus:ring-4 focus:ring-[#7868f4]/10"
                 value={status}
                 onChange={(e) => setStatus(e.target.value)}
                 required
@@ -2811,30 +2811,30 @@ function DeliveryTable({
                 </option>
               </select>
             </label>
-            <label className="flex flex-col gap-2 text-xs font-bold text-[#555673]">
+            <label className="flex flex-col gap-2 text-xs font-bold text-[#47436c]">
               Tracking number
               <input
                 value={trackingNumber}
                 onChange={(e) => setTrackingNumber(e.target.value)}
                 maxLength={100}
                 placeholder="Optional carrier reference"
-                className="w-full rounded-xl border border-[#e4e3f0] bg-[#fcfcff] px-3.5 py-3 text-sm font-medium text-[#29294f] outline-none transition placeholder:font-normal placeholder:text-[#a0a1b6] focus:border-[#7868f4] focus:ring-4 focus:ring-[#7868f4]/10"
+                className="w-full rounded-xl border border-[#e4e3f0] bg-[#eee9ff] px-3.5 py-3 text-sm font-medium text-[#29294f] outline-none transition placeholder:font-normal placeholder:text-[#69658c] focus:border-[#7868f4] focus:ring-4 focus:ring-[#7868f4]/10"
               />
             </label>
-            <label className="flex flex-col gap-2 text-xs font-bold text-[#555673]">
+            <label className="flex flex-col gap-2 text-xs font-bold text-[#47436c]">
               Update note
               <textarea
                 value={trackingNote}
                 onChange={(e) => setTrackingNote(e.target.value)}
                 maxLength={500}
                 placeholder="For example, reached local delivery hub"
-                className="min-h-24 w-full resize-y rounded-xl border border-[#e4e3f0] bg-[#fcfcff] px-3.5 py-3 text-sm font-medium text-[#29294f] outline-none transition placeholder:font-normal placeholder:text-[#a0a1b6] focus:border-[#7868f4] focus:ring-4 focus:ring-[#7868f4]/10"
+                className="min-h-24 w-full resize-y rounded-xl border border-[#e4e3f0] bg-[#eee9ff] px-3.5 py-3 text-sm font-medium text-[#29294f] outline-none transition placeholder:font-normal placeholder:text-[#69658c] focus:border-[#7868f4] focus:ring-4 focus:ring-[#7868f4]/10"
               />
             </label>
             <div className="mt-1 flex flex-wrap justify-end gap-3 max-[520px]:flex-col-reverse">
               <button
                 type="button"
-                className="inline-flex min-h-12 items-center justify-center rounded-full border border-[#e2def8] bg-white px-6 text-sm font-extrabold text-[#5b4be8] shadow-sm transition hover:bg-[#f8f7ff] max-[520px]:w-full"
+                className="inline-flex min-h-12 items-center justify-center rounded-full border border-[#e2def8] bg-[#f2edff] px-6 text-sm font-extrabold text-[#5b4be8] shadow-sm transition hover:bg-[#eae6ff] max-[520px]:w-full"
                 onClick={() => setEditing(null)}
               >
                 Cancel
@@ -2984,9 +2984,9 @@ function LibrarianInventory({ books = [], onRefresh }) {
           <b>{books.filter((b) => available(b) === 0).length}</b> out of stock
         </span>
       </div>
-      <div className="w-full overflow-x-auto rounded-[19px] border border-[#eeedfa] bg-white shadow-[0_10px_24px_rgb(58_53_113_/_5%)] max-[760px]:rounded-xl">
-        <table className="w-full min-w-[850px] table-fixed border-collapse text-left text-[13px] text-[#494a68]">
-          <thead className="bg-[#f8f7ff] text-[11px] font-bold uppercase tracking-[.06em] text-[#777794]">
+      <div className="w-full overflow-x-auto rounded-[19px] border border-[#eeedfa] bg-[#f2edff] shadow-[0_10px_24px_rgb(58_53_113_/_5%)] max-[760px]:rounded-xl">
+        <table className="w-full min-w-[850px] table-fixed border-collapse text-left text-[13px] text-[#49456f]">
+          <thead className="bg-[#eae6ff] text-[11px] font-bold uppercase tracking-[.06em] text-[#514d78]">
             <tr className="border-b border-[#ecebfa]">
               <th className="w-[26%] px-5 py-4">Book</th>
               <th className="w-[13%] px-5 py-4">Current stock</th>
@@ -2998,13 +2998,13 @@ function LibrarianInventory({ books = [], onRefresh }) {
           </thead>
           <tbody>
             {books.map((b) => (
-              <tr className="border-b border-[#f0eff8] align-middle last:border-0 hover:bg-[#fcfbff]" key={b._id}>
+              <tr className="border-b border-[#f0eff8] align-middle last:border-0 hover:bg-[#eee9ff]" key={b._id}>
                 <td className="px-5 py-4">
                   <div className="flex min-w-0 items-center gap-3">
                     <img className="h-16 w-12 shrink-0 rounded-lg object-cover shadow-sm" src={b.coverUrl || coverFallback} alt={`Cover of ${b.title}`} />
                     <span className="min-w-0">
                       <b className="block truncate font-semibold text-[#29294f]">{b.title}</b>
-                      <small className="mt-1 block truncate text-xs text-[#85869f]">{b.author}</small>
+                      <small className="mt-1 block truncate text-xs text-[#58547d]">{b.author}</small>
                     </span>
                   </div>
                 </td>
@@ -3021,7 +3021,7 @@ function LibrarianInventory({ books = [], onRefresh }) {
                 <td className="px-5 py-4">
                   <div className="flex min-w-0 items-center gap-3">
                     <input
-                      className="h-10 w-28 shrink-0 rounded-lg border border-[#deddf0] bg-white px-3 text-sm text-[#29294f] outline-none transition placeholder:text-[#a4a3ba] focus:border-[#7969f2] focus:ring-4 focus:ring-[#7969f2]/10"
+                      className="h-10 w-28 shrink-0 rounded-lg border border-[#deddf0] bg-[#f2edff] px-3 text-sm text-[#29294f] outline-none transition placeholder:text-[#69658c] focus:border-[#7969f2] focus:ring-4 focus:ring-[#7969f2]/10"
                       aria-label={`Copies to add for ${b.title}`}
                       type="number"
                       min="1"
@@ -3160,7 +3160,7 @@ function MyReviews({ reviews = [] }) {
               {"☆".repeat(5 - r.rating)}
             </span>
           </div>
-          <p className="text-[13px] leading-6 text-[#74758f]">{r.comment}</p>
+          <p className="text-[13px] leading-6 text-[#514d78]">{r.comment}</p>
           <div className="">
             <button
               className={`${"[display:inline-flex] [align-items:center] [gap:4px] [border:0] [background:none] [color:#5b4be8] [font-size:8px] [font-weight:700] [padding:5px] [margin:0] [white-space:nowrap] [border-radius:7px] [transition:background_0.15s_ease,_color_0.15s_ease,_transform_0.15s_ease] max-[760px]:[font-size:9px] hover:[background:#edf4ed] hover:[color:#28583e] hover:[transform:translateY(-1px)]"}`}
@@ -3336,8 +3336,8 @@ function AdminInventory({ books = [], onRefresh }) {
   return books.length ? (
     <>
       <div className="mb-5 grid grid-cols-1 gap-3 sm:grid-cols-3">
-        <div className="rounded-2xl border border-[#e9e7fb] bg-white px-4 py-3.5 shadow-[0_6px_18px_rgba(58,53,113,.04)]">
-          <span className="block text-xs font-semibold text-[#85869f]">Book listings</span>
+        <div className="rounded-2xl border border-[#e9e7fb] bg-[#f2edff] px-4 py-3.5 shadow-[0_6px_18px_rgba(58,53,113,.04)]">
+          <span className="block text-xs font-semibold text-[#58547d]">Book listings</span>
           <b className="mt-1 block font-display text-2xl font-extrabold text-[#29294f]">{books.length}</b>
         </div>
         <div className="rounded-2xl border border-[#e4f0e8] bg-[#fbfffc] px-4 py-3.5 shadow-[0_6px_18px_rgba(58,53,113,.04)]">
@@ -3349,18 +3349,18 @@ function AdminInventory({ books = [], onRefresh }) {
           <b className="mt-1 block font-display text-2xl font-extrabold text-[#a65c70]">{books.filter((b) => available(b) === 0).length}</b>
         </div>
       </div>
-      <div className="mb-4 grid grid-cols-[minmax(0,1fr)_auto_auto] items-center gap-3 rounded-2xl border border-[#e8e8f4] bg-white p-3 text-[#79847c] shadow-[0_4px_14px_rgba(45,65,48,.035)] max-[760px]:grid-cols-[minmax(0,1fr)_auto]">
-        <label className="flex h-11 min-w-0 items-center gap-2.5 rounded-xl border border-[#e8e7f1] bg-[#fcfbff] px-3.5 text-[#85869f] transition focus-within:border-[#7969f2] focus-within:ring-4 focus-within:ring-[#7969f2]/10 max-[760px]:col-span-2">
+      <div className="mb-4 grid grid-cols-[minmax(0,1fr)_auto_auto] items-center gap-3 rounded-2xl border border-[#e8e8f4] bg-[#f2edff] p-3 text-[#79847c] shadow-[0_4px_14px_rgba(45,65,48,.035)] max-[760px]:grid-cols-[minmax(0,1fr)_auto]">
+        <label className="flex h-11 min-w-0 items-center gap-2.5 rounded-xl border border-[#e8e7f1] bg-[#eee9ff] px-3.5 text-[#58547d] transition focus-within:border-[#7969f2] focus-within:ring-4 focus-within:ring-[#7969f2]/10 max-[760px]:col-span-2">
           <Search className="shrink-0" size={17} />
           <input
-            className="h-full min-w-0 flex-1 border-0 bg-transparent text-sm text-[#29294f] outline-none placeholder:text-[#a4a3ba]"
+            className="h-full min-w-0 flex-1 border-0 bg-transparent text-sm text-[#29294f] outline-none placeholder:text-[#69658c]"
             value={query}
             onChange={(e) => setQuery(e.target.value)}
             placeholder="Search by book, author or librarian"
           />
         </label>
         <select
-          className="h-11 min-w-[130px] rounded-xl border border-[#e8e7f1] bg-white px-3 text-sm font-semibold text-[#555673] outline-none focus:border-[#7969f2] focus:ring-4 focus:ring-[#7969f2]/10"
+          className="h-11 min-w-[130px] rounded-xl border border-[#e8e7f1] bg-[#f2edff] px-3 text-sm font-semibold text-[#47436c] outline-none focus:border-[#7969f2] focus:ring-4 focus:ring-[#7969f2]/10"
           aria-label="Filter inventory by stock"
           value={stockFilter}
           onChange={(e) => setStockFilter(e.target.value)}
@@ -3373,9 +3373,9 @@ function AdminInventory({ books = [], onRefresh }) {
           {visible.length} books
         </span>
       </div>
-      <div className="w-full overflow-x-auto rounded-[19px] border border-[#eeedfa] bg-white shadow-[0_10px_24px_rgb(58_53_113_/_5%)] max-[760px]:rounded-xl">
-        <table className="w-full min-w-[850px] table-fixed border-collapse text-left text-[13px] text-[#494a68]">
-          <thead className="bg-[#f8f7ff] text-[11px] font-bold uppercase tracking-[.06em] text-[#777794]">
+      <div className="w-full overflow-x-auto rounded-[19px] border border-[#eeedfa] bg-[#f2edff] shadow-[0_10px_24px_rgb(58_53_113_/_5%)] max-[760px]:rounded-xl">
+        <table className="w-full min-w-[850px] table-fixed border-collapse text-left text-[13px] text-[#49456f]">
+          <thead className="bg-[#eae6ff] text-[11px] font-bold uppercase tracking-[.06em] text-[#514d78]">
             <tr className="border-b border-[#ecebfa]">
               <th className="w-[34%] px-5 py-4">Book</th>
               <th className="w-[16%] px-5 py-4">Current stock</th>
@@ -3385,13 +3385,13 @@ function AdminInventory({ books = [], onRefresh }) {
           </thead>
           <tbody>
             {visible.map((b) => (
-              <tr className="border-b border-[#f0eff8] align-middle last:border-0 hover:bg-[#fcfbff]" key={b._id}>
+              <tr className="border-b border-[#f0eff8] align-middle last:border-0 hover:bg-[#eee9ff]" key={b._id}>
                 <td className="px-5 py-4">
                   <div className="flex min-w-0 items-center gap-3">
                     <img className="h-16 w-12 shrink-0 rounded-lg object-cover shadow-sm" src={b.coverUrl || coverFallback} alt={`Cover of ${b.title}`} />
                     <span className="min-w-0">
                       <b className="block truncate font-semibold text-[#29294f]">{b.title}</b>
-                      <small className="mt-1 block truncate text-xs text-[#85869f]">{b.author}</small>
+                      <small className="mt-1 block truncate text-xs text-[#58547d]">{b.author}</small>
                     </span>
                   </div>
                 </td>
@@ -3408,7 +3408,7 @@ function AdminInventory({ books = [], onRefresh }) {
                 <td className="px-5 py-4">
                   <div className="flex min-w-0 items-center gap-3">
                     <input
-                      className="h-10 w-28 shrink-0 rounded-lg border border-[#deddf0] bg-white px-3 text-sm text-[#29294f] outline-none transition placeholder:text-[#a4a3ba] focus:border-[#7969f2] focus:ring-4 focus:ring-[#7969f2]/10"
+                      className="h-10 w-28 shrink-0 rounded-lg border border-[#deddf0] bg-[#f2edff] px-3 text-sm text-[#29294f] outline-none transition placeholder:text-[#69658c] focus:border-[#7969f2] focus:ring-4 focus:ring-[#7969f2]/10"
                       aria-label={`Copies to add for ${b.title}`}
                       type="number"
                       min="1"
@@ -3475,9 +3475,9 @@ function AdminBooks({ books, onRefresh }) {
   };
   return (
     <>
-      <div className="w-full overflow-x-auto rounded-[20px] border border-[#ecebfa] bg-white shadow-[0_10px_24px_rgba(58,53,113,.06)]">
-        <table className="w-full min-w-[1040px] table-fixed border-collapse text-left text-[13px] text-[#494a68]">
-          <thead className="bg-[#f8f7ff] text-[11px] font-bold uppercase tracking-[.08em] text-[#777794]">
+      <div className="w-full overflow-x-auto rounded-[20px] border border-[#ecebfa] bg-[#f2edff] shadow-[0_10px_24px_rgba(58,53,113,.06)]">
+        <table className="w-full min-w-[1040px] table-fixed border-collapse text-left text-[13px] text-[#49456f]">
+          <thead className="bg-[#eae6ff] text-[11px] font-bold uppercase tracking-[.08em] text-[#514d78]">
             <tr className="border-b border-[#ecebfa]">
               <th className="w-[24%] px-4 py-4">Book</th>
               <th className="w-[20%] px-4 py-4">Librarian</th>
@@ -3489,24 +3489,24 @@ function AdminBooks({ books, onRefresh }) {
           </thead>
           <tbody>
             {books.map((b) => (
-              <tr className="border-b border-[#f0eff8] align-middle transition-colors last:border-0 hover:bg-[#fcfbff]" key={b._id}>
+              <tr className="border-b border-[#f0eff8] align-middle transition-colors last:border-0 hover:bg-[#eee9ff]" key={b._id}>
                 <td className="px-4 py-3.5">
                   <div className="flex min-w-[180px] items-center gap-3">
                     <img className="h-16 w-12 shrink-0 rounded-lg object-cover shadow-sm" src={b.coverUrl || coverFallback} alt={`Cover of ${b.title}`} />
                     <span className="min-w-0">
                       <b className="block truncate font-semibold text-[#29294f]">{b.title}</b>
-                      <small className="mt-1 block truncate text-xs text-[#85869f]">{b.author}</small>
+                      <small className="mt-1 block truncate text-xs text-[#58547d]">{b.author}</small>
                     </span>
                   </div>
                 </td>
                 <td className="break-words px-4 py-3.5 text-xs leading-5">
                   {b.owner?.name}
-                  <small className="mt-1 block break-all text-[10px] text-[#85869f]">{b.owner?.email}</small>
+                  <small className="mt-1 block break-all text-[10px] text-[#58547d]">{b.owner?.email}</small>
                 </td>
                 <td className="px-4 py-3.5">
                   <div className="flex items-center gap-2">
                     <input
-                      className="w-20 rounded-lg border border-[#e4e3f0] bg-white px-2.5 py-2 text-sm text-[#29294f] outline-none focus:border-[#7868f4] focus:ring-4 focus:ring-[#7868f4]/10"
+                      className="w-20 rounded-lg border border-[#e4e3f0] bg-[#f2edff] px-2.5 py-2 text-sm text-[#29294f] outline-none focus:border-[#7868f4] focus:ring-4 focus:ring-[#7868f4]/10"
                       aria-label={`Available copies for ${b.title}`}
                       type="number"
                       min="0"
@@ -3620,9 +3620,9 @@ function AdminUsers({ users, onRefresh }) {
   };
   return (
     <>
-      <div className="w-full overflow-x-auto rounded-[20px] border border-[#ecebfa] bg-white shadow-[0_10px_24px_rgba(58,53,113,.06)]">
-        <table className="w-full min-w-[760px] table-fixed border-collapse text-left text-[13px] text-[#494a68]">
-          <thead className="bg-[#f8f7ff] text-[11px] font-bold uppercase tracking-[.08em] text-[#777794]">
+      <div className="w-full overflow-x-auto rounded-[20px] border border-[#ecebfa] bg-[#f2edff] shadow-[0_10px_24px_rgba(58,53,113,.06)]">
+        <table className="w-full min-w-[760px] table-fixed border-collapse text-left text-[13px] text-[#49456f]">
+          <thead className="bg-[#eae6ff] text-[11px] font-bold uppercase tracking-[.08em] text-[#514d78]">
             <tr className="border-b border-[#ecebfa]">
               <th className="w-[38%] px-5 py-4">Member</th>
               <th className="w-[25%] px-5 py-4">Joined</th>
@@ -3632,19 +3632,19 @@ function AdminUsers({ users, onRefresh }) {
           </thead>
           <tbody>
             {users.map((u) => (
-              <tr className="border-b border-[#f0eff8] transition-colors last:border-0 hover:bg-[#fcfbff]" key={u.id}>
+              <tr className="border-b border-[#f0eff8] transition-colors last:border-0 hover:bg-[#eee9ff]" key={u.id}>
                 <td className="px-5 py-4">
                   <b className="block truncate font-semibold text-[#29294f]">{u.name}</b>
-                  <small className="mt-1 block break-all text-xs text-[#85869f]">{u.email}</small>
+                  <small className="mt-1 block break-all text-xs text-[#58547d]">{u.email}</small>
                 </td>
-                <td className="px-5 py-4 text-xs text-[#777993]">Community member</td>
+                <td className="px-5 py-4 text-xs text-[#514d78]">Community member</td>
                 <td className="px-5 py-4">
                   <StatusBadge status={u.role} />
                 </td>
                 <td className="px-5 py-4">
                   <div className="flex flex-wrap items-center gap-2">
                   <select
-                    className="min-w-[125px] rounded-xl border border-[#e4e3f0] bg-[#fcfcff] px-3 py-2.5 text-xs font-semibold text-[#494a68] outline-none focus:border-[#7868f4] focus:ring-4 focus:ring-[#7868f4]/10"
+                    className="min-w-[125px] rounded-xl border border-[#e4e3f0] bg-[#eee9ff] px-3 py-2.5 text-xs font-semibold text-[#49456f] outline-none focus:border-[#7868f4] focus:ring-4 focus:ring-[#7868f4]/10"
                     aria-label={`Change ${u.name} role`}
                     value={u.role}
                     onChange={async (e) => {
@@ -3707,7 +3707,7 @@ function ConfirmModal({ title, copy, busy, close, confirm }) {
           CONFIRM ACTION
         </div>
         <h2 className="font-display text-[clamp(24px,2.5vw,34px)] font-extrabold leading-tight tracking-[-.04em] text-[#29294f]">{title}</h2>
-        <p className="text-[13px] leading-6 text-[#74758f]">{copy}</p>
+        <p className="text-[13px] leading-6 text-[#514d78]">{copy}</p>
         <div className="[display:flex] [justify-content:flex-end] [gap:10px] [flex-wrap:wrap]">
           <button
             className={`${"[min-height:46px] [display:inline-flex] [align-items:center] [justify-content:center] [gap:9px] [padding:0_19px] [border:1px_solid_transparent] [border-radius:999px] [font-size:12px] [font-weight:800] [letter-spacing:0.1px] [transition:transform_0.2s,_background_0.2s,_color_0.2s] [cursor:pointer] [margin-top:3px] [max-width:100%] [white-space:normal] [flex-wrap:wrap] [align-self:flex-start] [box-shadow:0_7px_17px_rgb(91_75_232_/_12%)] hover:[transform:translateY(-2px)] disabled:[opacity:0.55] disabled:[cursor:not-allowed] disabled:[transform:none] [background:#fff] [border-color:#c8cec6] [color:#5545de] [border:1px_solid_#dcd9ff]"}`}
@@ -3729,9 +3729,9 @@ function ConfirmModal({ title, copy, busy, close, confirm }) {
 }
 function TransactionTable({ rows = [] }) {
   return rows.length ? (
-    <div className="w-full overflow-x-auto rounded-[20px] border border-[#ecebfa] bg-white shadow-[0_10px_24px_rgba(58,53,113,.06)]">
-      <table className="w-full min-w-[980px] table-fixed border-collapse text-left text-[13px] text-[#494a68]">
-        <thead className="bg-[#f8f7ff] text-[11px] font-bold uppercase tracking-[.08em] text-[#777794]">
+    <div className="w-full overflow-x-auto rounded-[20px] border border-[#ecebfa] bg-[#f2edff] shadow-[0_10px_24px_rgba(58,53,113,.06)]">
+      <table className="w-full min-w-[980px] table-fixed border-collapse text-left text-[13px] text-[#49456f]">
+        <thead className="bg-[#eae6ff] text-[11px] font-bold uppercase tracking-[.08em] text-[#514d78]">
           <tr className="border-b border-[#ecebfa]">
             <th className="w-[18%] px-5 py-4">Book</th>
             <th className="w-[20%] px-5 py-4">Reader</th>
@@ -3744,7 +3744,7 @@ function TransactionTable({ rows = [] }) {
         </thead>
         <tbody>
           {rows.map((r) => (
-            <tr className="border-b border-[#f0eff8] transition-colors last:border-0 hover:bg-[#fcfbff]" key={r._id}>
+            <tr className="border-b border-[#f0eff8] transition-colors last:border-0 hover:bg-[#eee9ff]" key={r._id}>
               <td className="break-words px-5 py-4 font-semibold text-[#29294f]">{r.book?.title || "Book"}</td>
               <td className="break-all px-5 py-4 text-xs">{r.reader?.email || "—"}</td>
               <td className="break-all px-5 py-4 text-xs">{r.librarian?.email || "—"}</td>
@@ -3834,7 +3834,7 @@ function BookModal({ close, done, admin = false }) {
           ADD TO YOUR SHELVES
         </div>
         <h2 className="font-display text-[clamp(24px,2.5vw,34px)] font-extrabold leading-tight tracking-[-.04em] text-[#29294f]">Share a good read.</h2>
-        <p className="text-[13px] leading-6 text-[#74758f]">
+        <p className="text-[13px] leading-6 text-[#514d78]">
           {admin
             ? "This book will be added to the live catalog."
             : "New listings are reviewed by the BiblioDrop team before they go live."}
@@ -3843,13 +3843,13 @@ function BookModal({ close, done, admin = false }) {
           className="[display:flex] [flex-direction:column] [gap:16px] [margin-top:24px]"
           onSubmit={submit}
         >
-          <label className="flex min-w-0 flex-col gap-2 text-[13px] font-bold text-[#484968]">
+          <label className="flex min-w-0 flex-col gap-2 text-[13px] font-bold text-[#47436d]">
             Book title
             <input
               required
               minLength={1}
               name="title"
-              className="h-11 w-full min-w-0 rounded-xl border border-[#deddf0] bg-white px-3.5 text-sm font-medium text-[#29294f] outline-none transition focus:border-[#7969f2] focus:ring-4 focus:ring-[#7969f2]/10"
+              className="h-11 w-full min-w-0 rounded-xl border border-[#deddf0] bg-[#f2edff] px-3.5 text-sm font-medium text-[#29294f] outline-none transition focus:border-[#7969f2] focus:ring-4 focus:ring-[#7969f2]/10"
               value={form.title}
               onChange={(e) =>
                 setForm({
@@ -3859,12 +3859,12 @@ function BookModal({ close, done, admin = false }) {
               }
             />
           </label>
-          <label className="flex min-w-0 flex-col gap-2 text-[13px] font-bold text-[#484968]">
+          <label className="flex min-w-0 flex-col gap-2 text-[13px] font-bold text-[#47436d]">
             Author
             <input
               required
               name="author"
-              className="h-11 w-full min-w-0 rounded-xl border border-[#deddf0] bg-white px-3.5 text-sm font-medium text-[#29294f] outline-none transition focus:border-[#7969f2] focus:ring-4 focus:ring-[#7969f2]/10"
+              className="h-11 w-full min-w-0 rounded-xl border border-[#deddf0] bg-[#f2edff] px-3.5 text-sm font-medium text-[#29294f] outline-none transition focus:border-[#7969f2] focus:ring-4 focus:ring-[#7969f2]/10"
               value={form.author}
               onChange={(e) =>
                 setForm({
@@ -3875,11 +3875,11 @@ function BookModal({ close, done, admin = false }) {
             />
           </label>
           <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
-            <label className="flex min-w-0 flex-col gap-2 text-[13px] font-bold text-[#484968]">
+            <label className="flex min-w-0 flex-col gap-2 text-[13px] font-bold text-[#47436d]">
               Category
               <select
                 value={form.category}
-                className="h-11 w-full min-w-0 rounded-xl border border-[#deddf0] bg-white px-3.5 text-sm font-medium text-[#29294f] outline-none transition focus:border-[#7969f2] focus:ring-4 focus:ring-[#7969f2]/10"
+                className="h-11 w-full min-w-0 rounded-xl border border-[#deddf0] bg-[#f2edff] px-3.5 text-sm font-medium text-[#29294f] outline-none transition focus:border-[#7969f2] focus:ring-4 focus:ring-[#7969f2]/10"
                 onChange={(e) =>
                   setForm({
                     ...form,
@@ -3892,14 +3892,14 @@ function BookModal({ close, done, admin = false }) {
                 ))}
               </select>
             </label>
-            <label className="flex min-w-0 flex-col gap-2 text-[13px] font-bold text-[#484968]">
+            <label className="flex min-w-0 flex-col gap-2 text-[13px] font-bold text-[#47436d]">
               Delivery fee ($)
               <input
                 type="number"
                 min="0"
                 step="0.01"
                 required
-                className="h-11 w-full min-w-0 rounded-xl border border-[#deddf0] bg-white px-3.5 text-sm font-medium text-[#29294f] outline-none transition focus:border-[#7969f2] focus:ring-4 focus:ring-[#7969f2]/10"
+                className="h-11 w-full min-w-0 rounded-xl border border-[#deddf0] bg-[#f2edff] px-3.5 text-sm font-medium text-[#29294f] outline-none transition focus:border-[#7969f2] focus:ring-4 focus:ring-[#7969f2]/10"
                 value={form.deliveryFee}
                 onChange={(e) =>
                   setForm({
@@ -3910,14 +3910,14 @@ function BookModal({ close, done, admin = false }) {
               />
             </label>
           </div>
-          <label className="flex min-w-0 flex-col gap-2 text-[13px] font-bold text-[#484968]">
+          <label className="flex min-w-0 flex-col gap-2 text-[13px] font-bold text-[#47436d]">
             Available copies
             <input
               type="number"
               min="0"
               step="1"
               required
-              className="h-11 w-full min-w-0 rounded-xl border border-[#deddf0] bg-white px-3.5 text-sm font-medium text-[#29294f] outline-none transition focus:border-[#7969f2] focus:ring-4 focus:ring-[#7969f2]/10"
+              className="h-11 w-full min-w-0 rounded-xl border border-[#deddf0] bg-[#f2edff] px-3.5 text-sm font-medium text-[#29294f] outline-none transition focus:border-[#7969f2] focus:ring-4 focus:ring-[#7969f2]/10"
               value={form.quantity}
               onChange={(e) =>
                 setForm({
@@ -3927,12 +3927,12 @@ function BookModal({ close, done, admin = false }) {
               }
             />
           </label>
-          <label className="flex min-w-0 flex-col gap-2 text-[13px] font-bold text-[#484968]">
+          <label className="flex min-w-0 flex-col gap-2 text-[13px] font-bold text-[#47436d]">
             Description
             <textarea
               required
               minLength={10}
-              className="min-h-28 w-full min-w-0 resize-y rounded-xl border border-[#deddf0] bg-white px-3.5 py-3 text-sm font-medium text-[#29294f] outline-none transition focus:border-[#7969f2] focus:ring-4 focus:ring-[#7969f2]/10"
+              className="min-h-28 w-full min-w-0 resize-y rounded-xl border border-[#deddf0] bg-[#f2edff] px-3.5 py-3 text-sm font-medium text-[#29294f] outline-none transition focus:border-[#7969f2] focus:ring-4 focus:ring-[#7969f2]/10"
               value={form.description}
               onChange={(e) =>
                 setForm({
@@ -3942,11 +3942,11 @@ function BookModal({ close, done, admin = false }) {
               }
             />
           </label>
-          <label className="flex min-w-0 flex-col gap-2 text-[13px] font-bold text-[#484968]">
+          <label className="flex min-w-0 flex-col gap-2 text-[13px] font-bold text-[#47436d]">
             Cover image URL
             <input
               type="url"
-              className="h-11 w-full min-w-0 rounded-xl border border-[#deddf0] bg-white px-3.5 text-sm font-medium text-[#29294f] outline-none transition placeholder:text-[#a4a3ba] focus:border-[#7969f2] focus:ring-4 focus:ring-[#7969f2]/10"
+              className="h-11 w-full min-w-0 rounded-xl border border-[#deddf0] bg-[#f2edff] px-3.5 text-sm font-medium text-[#29294f] outline-none transition placeholder:text-[#69658c] focus:border-[#7969f2] focus:ring-4 focus:ring-[#7969f2]/10"
               value={form.coverUrl}
               onChange={(e) =>
                 setForm({
@@ -3957,12 +3957,12 @@ function BookModal({ close, done, admin = false }) {
               placeholder="https://…"
             />
           </label>
-          <label className="flex min-w-0 flex-col gap-2 text-[13px] font-bold text-[#484968]">
+          <label className="flex min-w-0 flex-col gap-2 text-[13px] font-bold text-[#47436d]">
             Or upload a cover
             <input
               type="file"
               accept="image/*"
-              className="block w-full min-w-0 cursor-pointer rounded-xl border border-dashed border-[#c9c7e3] bg-white px-3 py-2.5 text-xs font-medium text-[#74758f] file:mr-3 file:cursor-pointer file:rounded-lg file:border-0 file:bg-[#f0edff] file:px-3 file:py-2 file:text-xs file:font-bold file:text-[#5b4be8] hover:border-[#7969f2]"
+              className="block w-full min-w-0 cursor-pointer rounded-xl border border-dashed border-[#c9c7e3] bg-[#f2edff] px-3 py-2.5 text-xs font-medium text-[#514d78] file:mr-3 file:cursor-pointer file:rounded-lg file:border-0 file:bg-[#f0edff] file:px-3 file:py-2 file:text-xs file:font-bold file:text-[#5b4be8] hover:border-[#7969f2]"
               onChange={(e) => setFile(e.target.files?.[0] || null)}
             />
           </label>
@@ -3985,7 +3985,7 @@ function EmptyState({ title, copy, action }) {
         <BookOpen size={24} />
       </span>
       <h3 className="font-display text-lg font-extrabold leading-snug tracking-[-.02em] text-[#29294f]">{title}</h3>
-      <p className="text-[13px] leading-6 text-[#74758f]">{copy}</p>
+      <p className="text-[13px] leading-6 text-[#514d78]">{copy}</p>
       {action}
     </div>
   );
@@ -4002,7 +4002,7 @@ function NotFound() {
         <br />
         <em>story is elsewhere.</em>
       </h1>
-      <p className="text-[13px] leading-6 text-[#74758f]">
+      <p className="text-[13px] leading-6 text-[#514d78]">
         We can’t find the page you’re looking for. Let’s get you back to the
         good books.
       </p>
@@ -4037,13 +4037,13 @@ function Footer({ dashboard = false }) {
             independent bookshelves, one delivery at a time.
           </p>
           <div className="mt-4 flex gap-2.5">
-            <a className="grid h-9 w-9 place-items-center rounded-full bg-white/10 text-sm text-white transition hover:bg-[#7868f4]" href="https://x.com" aria-label="X">
+            <a className="grid h-9 w-9 place-items-center rounded-full bg-[#f2edff]/10 text-sm text-white transition hover:bg-[#7868f4]" href="https://x.com" aria-label="X">
               <X size={16} />
             </a>
-            <a className="grid h-9 w-9 place-items-center rounded-full bg-white/10 text-sm text-white transition hover:bg-[#7868f4]" href="https://instagram.com" aria-label="Instagram">
+            <a className="grid h-9 w-9 place-items-center rounded-full bg-[#f2edff]/10 text-sm text-white transition hover:bg-[#7868f4]" href="https://instagram.com" aria-label="Instagram">
               ◎
             </a>
-            <a className="grid h-9 w-9 place-items-center rounded-full bg-white/10 text-sm font-bold text-white transition hover:bg-[#7868f4]" href="https://facebook.com" aria-label="Facebook">
+            <a className="grid h-9 w-9 place-items-center rounded-full bg-[#f2edff]/10 text-sm font-bold text-white transition hover:bg-[#7868f4]" href="https://facebook.com" aria-label="Facebook">
               f
             </a>
           </div>
