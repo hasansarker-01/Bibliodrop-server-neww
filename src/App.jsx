@@ -130,8 +130,8 @@ function App() {
     }
   };
   return (
-    <>
-      <header className="sticky top-0 z-40 h-[78px] border-b border-[#e8e8f4] bg-white/90 shadow-[0_8px_28px_rgba(58,53,113,.07)] backdrop-blur-lg max-[760px]:h-[70px]">
+    <div className="min-h-screen bg-[radial-gradient(ellipse_at_top_left,_rgba(124,108,247,.12),_transparent_34rem),radial-gradient(ellipse_at_top_right,_rgba(255,124,155,.1),_transparent_30rem),#fbfaff] text-[15px] leading-6 text-[#292743] antialiased [font-family:Inter,ui-sans-serif,system-ui,sans-serif] selection:bg-violet-200 selection:text-violet-950 [&_p]:leading-7 [&_small]:!text-xs [&_label]:!text-sm [&_input]:!text-sm [&_select]:!text-sm [&_textarea]:!text-sm [&_input::placeholder]:!text-slate-400 [&_textarea::placeholder]:!text-slate-400 [&_td]:!text-xs [&_button:focus-visible]:outline-none [&_button:focus-visible]:ring-4 [&_button:focus-visible]:ring-violet-200 [&_a:focus-visible]:outline-none [&_a:focus-visible]:ring-4 [&_a:focus-visible]:ring-violet-200">
+      <header className="sticky top-0 z-40 h-[78px] border-b border-[#e9e5ff] bg-white/90 shadow-[0_10px_36px_rgba(73,63,160,.09)] backdrop-blur-xl max-[760px]:h-[70px]">
         <div className="mx-auto flex h-full max-w-[1440px] items-center justify-between px-[42px] max-[1000px]:px-7 max-[760px]:px-5 max-[960px]:relative">
           <Link
             className="inline-flex items-center gap-3 font-display text-[23px] font-black leading-none tracking-[-.035em] text-[#302d61] max-[760px]:text-[21px] max-[390px]:text-[19px]"
@@ -153,7 +153,7 @@ function App() {
             {menu ? <X /> : <Menu />}
           </button>
           <nav
-            className={`flex items-center gap-2.5 whitespace-nowrap text-[13px] font-bold text-[#676989] ${menu ? "max-[960px]:flex" : "max-[960px]:hidden"} max-[960px]:absolute max-[960px]:right-[22px] max-[960px]:top-[calc(100%+10px)] max-[960px]:z-50 max-[960px]:min-w-[min(340px,calc(100vw-32px))] max-[960px]:flex-col max-[960px]:items-stretch max-[960px]:gap-1 max-[960px]:rounded-[22px] max-[960px]:border max-[960px]:border-[#eeedfa] max-[960px]:bg-white/95 max-[960px]:p-3.5 max-[960px]:shadow-[0_18px_38px_rgba(58,53,113,.16)] max-[960px]:backdrop-blur-lg`}
+            className={`flex items-center gap-2.5 whitespace-nowrap text-sm font-bold text-[#555775] ${menu ? "max-[960px]:flex" : "max-[960px]:hidden"} max-[960px]:absolute max-[960px]:right-[22px] max-[960px]:top-[calc(100%+10px)] max-[960px]:z-50 max-[960px]:min-w-[min(340px,calc(100vw-32px))] max-[960px]:flex-col max-[960px]:items-stretch max-[960px]:gap-1 max-[960px]:rounded-[22px] max-[960px]:border max-[960px]:border-[#eeedfa] max-[960px]:bg-white/95 max-[960px]:p-3.5 max-[960px]:shadow-[0_18px_38px_rgba(58,53,113,.16)] max-[960px]:backdrop-blur-lg`}
           >
             <NavLink end to="/" className={({ isActive }) => `rounded-full px-4 py-3 transition-colors hover:bg-[#f0edff] hover:text-[#5b4be8] max-[960px]:rounded-xl max-[960px]:px-3 ${isActive ? "bg-[#f0edff] text-[#5b4be8]" : ""}`} onClick={() => setMenu(false)}>
               Home
@@ -215,7 +215,7 @@ function App() {
           </nav>
         </div>
       </header>
-      <main>
+      <main className="min-h-[calc(100vh-78px)]">
           <Routes>
             <Route path="/" element={<Home />} />
             <Route
@@ -293,7 +293,7 @@ function App() {
           </Routes>
       </main>
       <Footer dashboard={location.pathname.startsWith("/dashboard/")} />
-    </>
+    </div>
   );
 }
 function Home() {
