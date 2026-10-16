@@ -172,14 +172,14 @@ function App() {
             )}
             {user && (
               <Link
-                className="grid h-[42px] w-[42px] shrink-0 self-center place-items-center overflow-hidden rounded-full border-[3px] border-white bg-gradient-to-br from-[#ff9bb0] to-[#ff718d] p-0.5 shadow-[0_0_0_2px_#eeeaff] max-[960px]:my-2"
+                className="grid h-[42px] w-[42px] shrink-0 self-center place-items-center overflow-hidden rounded-full bg-transparent p-0 max-[960px]:my-2"
                 to={`/dashboard/${user.role}?tab=profile`}
                 onClick={() => setMenu(false)}
               >
                 {user.avatar ? (
                   <img className="h-full w-full rounded-full object-cover" src={user.avatar} alt="Profile" />
                 ) : (
-                  <span className="font-bold text-white">{user.name?.[0]?.toUpperCase()}</span>
+                  <span className="grid h-full w-full place-items-center rounded-full bg-[#7868f4] font-bold text-white">{user.name?.[0]?.toUpperCase()}</span>
                 )}
               </Link>
             )}
