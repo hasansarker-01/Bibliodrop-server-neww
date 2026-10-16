@@ -23,6 +23,8 @@ import {
   CircleUserRound,
   Clock3,
   Compass,
+  Eye,
+  EyeOff,
   Filter,
   Library,
   LoaderCircle,
@@ -1218,7 +1220,9 @@ function AuthPage({ mode, setUser }) {
       avatar: "",
     }),
     [avatarFile, setAvatarFile] = useState(null),
-    [busy, setBusy] = useState(false);
+    [busy, setBusy] = useState(false),
+    [showPassword, setShowPassword] = useState(false),
+    [showConfirmPassword, setShowConfirmPassword] = useState(false);
   const change = (e) =>
     setForm({
       ...form,
@@ -1319,30 +1323,52 @@ function AuthPage({ mode, setUser }) {
           </label>
           <label className="flex flex-col gap-2 text-xs font-semibold text-[#656681]">
             Password
-            <input
-              name="password"
-              type="password"
-              value={form.password}
-              onChange={change}
-              required
-              minLength={isRegister ? 8 : 1}
-              placeholder={
-                isRegister ? "At least 8 characters" : "Your password"
-              }
-              className="w-full rounded-xl border border-[#e4e3f0] bg-white px-3.5 py-3 text-sm text-[#29294f] outline-none focus:border-[#7868f4] focus:ring-4 focus:ring-[#7868f4]/10"
-            />
+            <span className="relative block">
+              <input
+                name="password"
+                type={showPassword ? "text" : "password"}
+                value={form.password}
+                onChange={change}
+                required
+                minLength={isRegister ? 8 : 1}
+                placeholder={
+                  isRegister ? "At least 8 characters" : "Your password"
+                }
+                className="w-full rounded-xl border border-[#e4e3f0] bg-white px-3.5 py-3 pr-12 text-sm text-[#29294f] outline-none focus:border-[#7868f4] focus:ring-4 focus:ring-[#7868f4]/10"
+              />
+              <button
+                type="button"
+                className="absolute inset-y-0 right-2 grid w-9 place-items-center rounded-lg text-[#85869f] transition hover:bg-[#f3f1ff] hover:text-[#5b4be8] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#7868f4]"
+                onClick={() => setShowPassword((visible) => !visible)}
+                aria-label={showPassword ? "Hide password" : "Show password"}
+                aria-pressed={showPassword}
+              >
+                {showPassword ? <EyeOff size={17} /> : <Eye size={17} />}
+              </button>
+            </span>
           </label>
           {isRegister && (
             <>
               <label className="flex flex-col gap-2 text-xs font-semibold text-[#656681]">
                 Confirm password
-                <input
-                  name="confirmPassword"
-                  type="password"
-                  required
-                  placeholder="Enter it again"
-                  className="w-full rounded-xl border border-[#e4e3f0] bg-white px-3.5 py-3 text-sm text-[#29294f] outline-none focus:border-[#7868f4] focus:ring-4 focus:ring-[#7868f4]/10"
-                />
+                <span className="relative block">
+                  <input
+                    name="confirmPassword"
+                    type={showConfirmPassword ? "text" : "password"}
+                    required
+                    placeholder="Enter it again"
+                    className="w-full rounded-xl border border-[#e4e3f0] bg-white px-3.5 py-3 pr-12 text-sm text-[#29294f] outline-none focus:border-[#7868f4] focus:ring-4 focus:ring-[#7868f4]/10"
+                  />
+                  <button
+                    type="button"
+                    className="absolute inset-y-0 right-2 grid w-9 place-items-center rounded-lg text-[#85869f] transition hover:bg-[#f3f1ff] hover:text-[#5b4be8] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#7868f4]"
+                    onClick={() => setShowConfirmPassword((visible) => !visible)}
+                    aria-label={showConfirmPassword ? "Hide confirm password" : "Show confirm password"}
+                    aria-pressed={showConfirmPassword}
+                  >
+                    {showConfirmPassword ? <EyeOff size={17} /> : <Eye size={17} />}
+                  </button>
+                </span>
               </label>
               <label className="flex flex-col gap-2 text-xs font-semibold text-[#656681]">
                 Profile photo (optional)

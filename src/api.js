@@ -3,11 +3,14 @@ import axios from "axios";
 // Accept either the API origin or its /api base path from the deployment env.
 // Local development uses the Express server on port 5000 by default.
 const configuredApiUrl = import.meta.env.VITE_API_URL?.replace(/\/+$/, "");
-const API_BASE_URL = configuredApiUrl
+const localApiUrl = configuredApiUrl
   ? /\/api$/i.test(configuredApiUrl)
     ? configuredApiUrl
     : `${configuredApiUrl}/api`
   : "http://localhost:5000/api";
+// In production, send requests through the client origin so browsers accept
+// the session cookie; Vercel proxies /api to the backend.
+const API_BASE_URL = import.meta.env.PROD ? "/api" : localApiUrl;
 
 export const api = axios.create({
   baseURL: API_BASE_URL,
