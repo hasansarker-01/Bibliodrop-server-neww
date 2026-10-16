@@ -1,0 +1,60 @@
+/** @type {import('tailwindcss').Config} */
+export default {
+  safelist: [
+    "[background:#e2ece1]",
+    "[color:#3e704d]",
+    "[background:#f3e9d7]",
+    "[color:#92713c]",
+    "[background:#e5e9f0]",
+    "[color:#62728c]",
+    "[background:#f0e5e0]",
+    "[color:#a36750]",
+    "[background:linear-gradient(145deg,_#e0fff6,_#c9f3e7)]",
+    "[color:#267963]",
+    "[background:#ece9ff]",
+    "[color:#6d5ce3]",
+    "[background:#fff3d2]",
+    "[color:#ba8a25]",
+    "[background:linear-gradient(145deg,_#fff0f3,_#ffd8e1)]",
+    "[color:#bc536f]",
+    "[background:linear-gradient(145deg,_#e8f5ff,_#cee8ff)]",
+    "[color:#367fb9]",
+    "[background:#ddfbf1]",
+    "[color:#1a9e82]",
+    "[background:#ffe8ee]",
+    "[color:#dc5d7c]",
+  ],
+  content: ["./index.html", "./src/**/*.{js,jsx}"],
+  theme: {
+    extend: {
+      colors: {
+        ink: "#222344",
+        forest: "#5b4be8",
+        moss: "#6a70a5",
+        paper: "#f8f8ff",
+        clay: "#ff718d",
+        line: "#e8e8f4",
+        bubble: {
+          purple: "#7868f4",
+          pink: "#ff7c9b",
+          mint: "#49c9b0",
+          yellow: "#ffc95c",
+          blue: "#71b9ff",
+        },
+      },
+      fontFamily: {
+        display: ["Trebuchet MS", "ui-rounded", "system-ui", "sans-serif"],
+        sans: ["Trebuchet MS", "ui-rounded", "system-ui", "sans-serif"],
+      },
+      boxShadow: {
+        soft: "0 18px 60px rgba(58,53,113,.08)",
+        bubble: "0 12px 30px rgba(58,53,113,.10)",
+      },
+      borderRadius: {
+        bubble: "1.5rem",
+        pill: "9999px",
+      },
+    },
+  },
+  plugins: [],
+};
