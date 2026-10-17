@@ -216,81 +216,81 @@ function App() {
         </div>
       </header>
       <main className="min-h-[calc(100vh-78px)]">
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route
-              path="/books"
-              element={<Browse onAddToCart={user ? addToCart : undefined} />}
-            />
-            <Route
-              path="/books/:id"
-              element={
-                <BookDetail
-                  user={user}
-                  onAddToCart={user ? addToCart : undefined}
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route
+            path="/books"
+            element={<Browse onAddToCart={user ? addToCart : undefined} />}
+          />
+          <Route
+            path="/books/:id"
+            element={
+              <BookDetail
+                user={user}
+                onAddToCart={user ? addToCart : undefined}
+              />
+            }
+          />
+          <Route
+            path="/cart"
+            element={
+              authLoading ? (
+                <div className="flex min-h-[440px] items-center justify-center gap-3 text-sm text-[#514d78]">
+                  <LoaderCircle className="animate-spin text-[#6b5ce7]" />
+                  Loading your library…
+                </div>
+              ) : user ? (
+                <CartPage cart={cart} setCart={setCart} user={user} />
+              ) : (
+                <Navigate
+                  to={`/login?return=${encodeURIComponent("/cart")}`}
+                  replace
                 />
-              }
-            />
-            <Route
-              path="/cart"
-              element={
-                authLoading ? (
-                  <div className="flex min-h-[440px] items-center justify-center gap-3 text-sm text-[#514d78]">
-                    <LoaderCircle className="animate-spin text-[#6b5ce7]" />
-                    Loading your library…
-                  </div>
-                ) : user ? (
-                  <CartPage cart={cart} setCart={setCart} user={user} />
-                ) : (
-                  <Navigate
-                    to={`/login?return=${encodeURIComponent("/cart")}`}
-                    replace
-                  />
-                )
-              }
-            />
-            <Route
-              path="/payment/cancel"
-              element={<PaymentCancel user={user} />}
-            />
-            <Route
-              path="/login"
-              element={<AuthPage mode="login" setUser={setUser} />}
-            />
-            <Route
-              path="/register"
-              element={<AuthPage mode="register" setUser={setUser} />}
-            />
-            <Route
-              path="/verify-email"
-              element={<VerifyEmail setUser={setUser} />}
-            />
-            <Route
-              path="/forgot-password"
-              element={<PasswordPage mode="forgot" />}
-            />
-            <Route
-              path="/reset-password"
-              element={<PasswordPage mode="reset" />}
-            />
-            <Route
-              path="/payment/success"
-              element={<PaymentSuccess user={user} setCart={setCart} />}
-            />
-            <Route
-              path="/dashboard/:role"
-              element={
-                authLoading ? (
-                  <div className="flex min-h-[440px] items-center justify-center gap-3 text-sm text-[#514d78]">
-                    <LoaderCircle className="animate-spin text-[#6b5ce7]" /> Loading your library…
-                  </div>
-                ) : (
-                  <Dashboard user={user} setUser={setUser} />
-                )
-              }
-            />
-            <Route path="*" element={<NotFound />} />
-          </Routes>
+              )
+            }
+          />
+          <Route
+            path="/payment/cancel"
+            element={<PaymentCancel user={user} />}
+          />
+          <Route
+            path="/login"
+            element={<AuthPage mode="login" setUser={setUser} />}
+          />
+          <Route
+            path="/register"
+            element={<AuthPage mode="register" setUser={setUser} />}
+          />
+          <Route
+            path="/verify-email"
+            element={<VerifyEmail setUser={setUser} />}
+          />
+          <Route
+            path="/forgot-password"
+            element={<PasswordPage mode="forgot" />}
+          />
+          <Route
+            path="/reset-password"
+            element={<PasswordPage mode="reset" />}
+          />
+          <Route
+            path="/payment/success"
+            element={<PaymentSuccess user={user} setCart={setCart} />}
+          />
+          <Route
+            path="/dashboard/:role"
+            element={
+              authLoading ? (
+                <div className="flex min-h-[440px] items-center justify-center gap-3 text-sm text-[#514d78]">
+                  <LoaderCircle className="animate-spin text-[#6b5ce7]" /> Loading your library…
+                </div>
+              ) : (
+                <Dashboard user={user} setUser={setUser} />
+              )
+            }
+          />
+          <Route path="*" element={<NotFound />} />
+        </Routes>
       </main>
       <Footer dashboard={location.pathname.startsWith("/dashboard/")} />
     </div>
@@ -730,11 +730,11 @@ function BookCard({ book, index = 0, onAddToCart }) {
 function Browse({ onAddToCart }) {
   const [params, setParams] = useSearchParams();
   const [data, setData] = useState({
-      items: [],
-      page: 1,
-      pages: 0,
-      total: 0,
-    }),
+    items: [],
+    page: 1,
+    pages: 0,
+    total: 0,
+  }),
     [loading, setLoading] = useState(true),
     [query, setQuery] = useState(params.get("q") || ""),
     [filterOpen, setFilterOpen] = useState(false);
@@ -1119,62 +1119,68 @@ function BookDetail({ user, onAddToCart }) {
           </div>
         </div>
       </div>
-      <section className="[max-width:1000px] [margin:100px_auto_0] [padding-top:35px] [border-top:1px_solid_#e8e8f4] [display:grid] [grid-template-columns:0.8fr_1.2fr] [gap:70px] max-[760px]:[margin-top:65px] max-[760px]:[grid-template-columns:1fr] max-[760px]:[gap:15px]">
-        <div className="">
-          <div className="[font-size:9px] [font-weight:700] [letter-spacing:1.7px] [color:#778176] [display:flex] [align-items:center] [gap:9px] [margin-bottom:17px]">
+      <section className="mx-auto mt-24 max-w-[1000px] border-t border-[#e8e8f4] pt-9 max-[760px]:mt-16 max-[760px]:pt-7">
+        <div className="mb-8 flex items-end justify-between gap-6 max-[760px]:mb-6 max-[760px]:flex-col max-[760px]:items-start max-[760px]:gap-3">
+          <div>
+            <div className="mb-3 flex items-center gap-2.5 text-[9px] font-bold tracking-[.17em] text-[#778176]">
             <span className="[width:6px] [height:6px] [background:#ff718d] [border-radius:50%] [display:inline-block]" />{" "}
             NOTES FROM READERS
+            </div>
+            <h2 className="font-display text-[clamp(25px,3vw,36px)] font-extrabold leading-[1.12] tracking-[-.04em] text-[#29294f]">
+              A few words from the <em>last page.</em>
+            </h2>
           </div>
-          <h2 className="font-display text-[clamp(24px,2.5vw,34px)] font-extrabold leading-tight tracking-[-.04em] text-[#29294f]">
-            A few words from the
-            <br />
-            <em>last page.</em>
-          </h2>
+          <p className="max-w-[420px] text-sm leading-6 text-[#73758e] max-[760px]:max-w-none">
+            Notes from readers help you find your next favorite story.
+          </p>
         </div>
-        <div className="[display:flex] [flex-direction:column] [gap:13px]">
+        <div className="flex flex-col gap-3">
           {reviews.length ? (
             reviews.map((r) => (
               <article
-                className="[padding:18px] [background:#efeee7]"
+                className="rounded-2xl border border-[#e9e7f3] bg-white p-5 shadow-[0_8px_24px_rgba(58,53,113,.05)] max-[600px]:p-4"
                 key={r._id}
               >
-                <div className="[display:flex] [align-items:center] [gap:10px]">
-                  <div className="[width:31px] [height:31px] [border-radius:50%] [background:#d7dfcf] [display:grid] [place-items:center] [color:#5b4be8] [font:600_14px_Trebuchet_MS,_ui-rounded,_system-ui,_sans-serif]">
+                <div className="flex items-center gap-3">
+                  <div className="grid h-10 w-10 shrink-0 place-items-center rounded-full bg-[#eeeaff] font-semibold text-[#5b4be8]">
                     {r.reader?.name?.[0] || "R"}
                   </div>
-                  <div>
-                    <b>{r.reader?.name || "Reader"}</b>
-                    <small>{new Date(r.createdAt).toLocaleDateString()}</small>
+                  <div className="min-w-0">
+                    <b className="block truncate text-sm text-[#29294f]">{r.reader?.name || "Reader"}</b>
+                    <small className="mt-0.5 block text-xs text-[#85869d]">{new Date(r.createdAt).toLocaleDateString()}</small>
                   </div>
-                  <span className="[margin-left:auto] [color:#b48643] [font-size:10px] [letter-spacing:1px]">
+                  <span className="ml-auto shrink-0 text-sm tracking-[2px] text-[#b48643]" aria-label={`${r.rating} out of 5 stars`}>
                     {"★".repeat(r.rating)}
                     {"☆".repeat(5 - r.rating)}
                   </span>
                 </div>
-                <p className="text-[13px] leading-6 text-[#514d78]">{r.comment}</p>
+                <p className="mt-4 whitespace-pre-wrap break-words text-sm leading-6 text-[#514d78]">{r.comment}</p>
               </article>
             ))
           ) : (
-            <p
-              className={`${"[font-size:10px] [color:#8b9188] [line-height:1.7]"}`}
-            >
-              No reader reviews yet. Your first impression can help someone else
-              find the right book.
-            </p>
+            <div className="rounded-2xl border border-dashed border-[#dcd9ee] bg-[#f5f3ff]/70 px-6 py-7 text-center max-[600px]:px-4 max-[600px]:py-6">
+              <div className="mx-auto mb-3 grid h-10 w-10 place-items-center rounded-full bg-white text-[#7768eb] shadow-sm"><Star size={18} /></div>
+              <p className="text-sm font-bold text-[#38365f]">No reader reviews yet</p>
+              <p className="mx-auto mt-1 max-w-[440px] text-sm leading-6 text-[#777890]">Be the first to share your impression and help someone else find the right book.</p>
+            </div>
           )}
         </div>
       </section>
       {user?.role === "user" && (
         <form
-          className="[max-width:1000px] [margin:42px_auto_0] [padding:25px] [background:#efeee7] max-[760px]:[margin-top:27px] max-[760px]:[padding:18px]"
+          className="mx-auto mt-8 max-w-[1000px] rounded-[24px] border border-[#e9e6fa] bg-gradient-to-br from-white to-[#f5f2ff] p-6 shadow-[0_12px_32px_rgba(58,53,113,.07)] max-[760px]:mt-6 max-[600px]:rounded-2xl max-[600px]:p-4"
           onSubmit={review}
         >
-          <h3 className="font-display text-lg font-extrabold leading-snug tracking-[-.02em] text-[#29294f]">Read it and loved it?</h3>
-          <p className="text-[13px] leading-6 text-[#514d78]">Reviews open once your delivery has been marked complete.</p>
-          <div className="[display:flex] [align-items:end] [gap:17px] max-[760px]:[align-items:stretch] max-[760px]:[flex-direction:column]">
-            <label>
+          <div className="mb-5">
+            <span className="text-[9px] font-bold tracking-[.16em] text-[#777890]">YOUR READING NOTE</span>
+            <h3 className="mt-1 font-display text-xl font-extrabold leading-snug tracking-[-.02em] text-[#29294f]">Read it and loved it?</h3>
+            <p className="mt-1 text-sm leading-6 text-[#696b86]">Reviews open once your delivery has been marked complete.</p>
+          </div>
+          <div className="grid grid-cols-[minmax(150px,210px)_minmax(0,1fr)_auto] items-end gap-4 max-[760px]:grid-cols-1 max-[760px]:items-stretch">
+            <label className="flex min-w-0 flex-col gap-2 text-xs font-bold text-[#4f4d70]">
               Your rating
               <select
+                className="h-12 w-full rounded-xl border border-[#e3e0f1] bg-white px-3 text-sm font-semibold text-[#39365e] outline-none transition focus:border-[#7868f4] focus:ring-4 focus:ring-[#7868f4]/10"
                 value={rating}
                 onChange={(e) => setRating(Number(e.target.value))}
               >
@@ -1185,9 +1191,10 @@ function BookDetail({ user, onAddToCart }) {
                 ))}
               </select>
             </label>
-            <label className={`${"[flex:1]"}`}>
+            <label className="flex min-w-0 flex-col gap-2 text-xs font-bold text-[#4f4d70]">
               Your review
               <textarea
+                className="min-h-12 w-full resize-y rounded-xl border border-[#e3e0f1] bg-white px-4 py-3 text-sm font-normal leading-6 text-[#29294f] outline-none transition placeholder:text-[#9999ad] focus:border-[#7868f4] focus:ring-4 focus:ring-[#7868f4]/10"
                 value={comment}
                 onChange={(e) => setComment(e.target.value)}
                 placeholder="What did you think?"
@@ -1197,10 +1204,10 @@ function BookDetail({ user, onAddToCart }) {
               />
             </label>
             <button
-              className={`${"[min-height:46px] [display:inline-flex] [align-items:center] [justify-content:center] [gap:9px] [padding:0_19px] [border:1px_solid_transparent] [border-radius:999px] [font-size:12px] [font-weight:800] [letter-spacing:0.1px] [transition:transform_0.2s,_background_0.2s,_color_0.2s] [cursor:pointer] [margin-top:3px] [max-width:100%] [white-space:normal] [flex-wrap:wrap] [align-self:flex-start] [box-shadow:0_7px_17px_rgb(91_75_232_/_12%)] hover:[transform:translateY(-2px)] disabled:[opacity:0.55] disabled:[cursor:not-allowed] disabled:[transform:none] [background:linear-gradient(135deg,_#7d6df6,_#5545de)] [color:white] [box-shadow:0_9px_20px_rgb(91_75_232_/_24%)] hover:[background:linear-gradient(135deg,_#6c5be9,_#4939cc)] hover:[filter:saturate(1.2)] hover:[transform:translateY(-1px)]"}`}
+              className="inline-flex h-12 items-center justify-center gap-2.5 whitespace-nowrap rounded-full bg-gradient-to-r from-[#7d6df6] to-[#5545de] px-6 text-xs font-extrabold text-white shadow-[0_9px_20px_rgba(91,75,232,.22)] transition hover:-translate-y-0.5 hover:shadow-lg disabled:cursor-not-allowed disabled:opacity-55 max-[760px]:w-full"
               disabled={busy}
             >
-              Post review <ArrowRight size={16} />
+              {busy ? "Posting…" : "Post review"} <ArrowRight size={16} />
             </button>
           </div>
         </form>
@@ -1213,12 +1220,12 @@ function AuthPage({ mode, setUser }) {
     nav = useNavigate(),
     [searchParams] = useSearchParams();
   const [form, setForm] = useState({
-      name: "",
-      email: "",
-      password: "",
-      role: "user",
-      avatar: "",
-    }),
+    name: "",
+    email: "",
+    password: "",
+    role: "user",
+    avatar: "",
+  }),
     [avatarFile, setAvatarFile] = useState(null),
     [busy, setBusy] = useState(false),
     [showPassword, setShowPassword] = useState(false),
@@ -1244,7 +1251,7 @@ function AuthPage({ mode, setUser }) {
       );
       if (isRegister) {
         toast.success(
-          "Verification email sent. Check your inbox and spam folder before signing in.",
+          "Verification email sent.",
         );
         nav("/login");
         return;
@@ -1467,12 +1474,12 @@ function PasswordPage({ mode }) {
         `/auth/${reset ? "reset-password" : "forgot-password"}`,
         reset
           ? {
-              token: params.get("token"),
-              password,
-            }
+            token: params.get("token"),
+            password,
+          }
           : {
-              email,
-            },
+            email,
+          },
       );
       setDone(true);
       toast.success(data.message);
@@ -1769,8 +1776,8 @@ function CartPage({ cart, setCart, user }) {
           const { data } = await api.post("/location/reverse", point);
           setAddress(
             data.streetAddress ||
-              data.formattedAddress ||
-              `GPS delivery pin (${point.latitude.toFixed(5)}, ${point.longitude.toFixed(5)})`,
+            data.formattedAddress ||
+            `GPS delivery pin (${point.latitude.toFixed(5)}, ${point.longitude.toFixed(5)})`,
           );
           setCity(data.city || "");
           setArea(data.area || "");
@@ -2158,15 +2165,15 @@ function Dashboard({ user, setUser }) {
       : role === "librarian"
         ? ["overview", "inventory", "deliveries", "profile"]
         : [
-            "overview",
-            "approvals",
-            "books",
-            "inventory",
-            "users",
-            "deliveries",
-            "transactions",
-            "profile",
-          ];
+          "overview",
+          "approvals",
+          "books",
+          "inventory",
+          "users",
+          "deliveries",
+          "transactions",
+          "profile",
+        ];
   const refreshAll = () => setRefresh((n) => n + 1);
   names.profile = "My profile";
   if (loading)
@@ -2240,13 +2247,13 @@ function Dashboard({ user, setUser }) {
           {((role === "librarian" &&
             (tab === "inventory" || tab === "overview")) ||
             (role === "admin" && tab === "books")) && (
-            <button
-              className={`${"[min-height:46px] [display:inline-flex] [align-items:center] [justify-content:center] [gap:9px] [padding:0_19px] [border:1px_solid_transparent] [border-radius:999px] [font-size:12px] [font-weight:800] [letter-spacing:0.1px] [transition:transform_0.2s,_background_0.2s,_color_0.2s] [cursor:pointer] [margin-top:3px] [max-width:100%] [white-space:normal] [flex-wrap:wrap] [align-self:flex-start] [box-shadow:0_7px_17px_rgb(91_75_232_/_12%)] hover:[transform:translateY(-2px)] disabled:[opacity:0.55] disabled:[cursor:not-allowed] disabled:[transform:none] [background:linear-gradient(135deg,_#7d6df6,_#5545de)] [color:white] [box-shadow:0_9px_20px_rgb(91_75_232_/_24%)] hover:[background:linear-gradient(135deg,_#6c5be9,_#4939cc)] hover:[filter:saturate(1.2)] hover:[transform:translateY(-1px)]"}`}
-              onClick={() => setAdding(true)}
-            >
-              + Add a book
-            </button>
-          )}
+              <button
+                className={`${"[min-height:46px] [display:inline-flex] [align-items:center] [justify-content:center] [gap:9px] [padding:0_19px] [border:1px_solid_transparent] [border-radius:999px] [font-size:12px] [font-weight:800] [letter-spacing:0.1px] [transition:transform_0.2s,_background_0.2s,_color_0.2s] [cursor:pointer] [margin-top:3px] [max-width:100%] [white-space:normal] [flex-wrap:wrap] [align-self:flex-start] [box-shadow:0_7px_17px_rgb(91_75_232_/_12%)] hover:[transform:translateY(-2px)] disabled:[opacity:0.55] disabled:[cursor:not-allowed] disabled:[transform:none] [background:linear-gradient(135deg,_#7d6df6,_#5545de)] [color:white] [box-shadow:0_9px_20px_rgb(91_75_232_/_24%)] hover:[background:linear-gradient(135deg,_#6c5be9,_#4939cc)] hover:[filter:saturate(1.2)] hover:[transform:translateY(-1px)]"}`}
+                onClick={() => setAdding(true)}
+              >
+                + Add a book
+              </button>
+            )}
         </div>
         {tab === "overview" && (
           <Overview role={role} data={data || {}} onUpdate={refreshAll} />
@@ -2728,12 +2735,12 @@ function DeliveryTable({
           onMouseDown={(e) => e.target === e.currentTarget && setEditing(null)}
         >
           <form
-          className="relative grid max-h-[90vh] w-full max-w-[560px] gap-5 overflow-y-auto rounded-[28px] border border-white/80 bg-[#f2edff] p-8 shadow-[0_28px_80px_rgba(28,26,69,.25)] max-[760px]:gap-4 max-[760px]:rounded-[24px] max-[760px]:p-5"
+            className="relative grid max-h-[90vh] w-full max-w-[560px] gap-5 overflow-y-auto rounded-[28px] border border-white/80 bg-[#f2edff] p-8 shadow-[0_28px_80px_rgba(28,26,69,.25)] max-[760px]:gap-4 max-[760px]:rounded-[24px] max-[760px]:p-5"
             onSubmit={save}
           >
             <button
               type="button"
-            className="absolute right-4 top-4 grid h-10 w-10 place-items-center rounded-full border-0 bg-[#f4f2ff] p-2 text-[#5b4be8] transition hover:bg-[#eae6ff]"
+              className="absolute right-4 top-4 grid h-10 w-10 place-items-center rounded-full border-0 bg-[#f4f2ff] p-2 text-[#5b4be8] transition hover:bg-[#eae6ff]"
               onClick={() => setEditing(null)}
             >
               <X />
@@ -3079,9 +3086,9 @@ function MyReviews({ reviews = [] }) {
         v.map((x) =>
           x._id === r._id
             ? {
-                ...x,
-                comment: comment.trim(),
-              }
+              ...x,
+              comment: comment.trim(),
+            }
             : x,
         ),
       );
@@ -3597,32 +3604,32 @@ function AdminUsers({ users, onRefresh }) {
                 </td>
                 <td className="px-5 py-4">
                   <div className="flex flex-wrap items-center gap-2">
-                  <select
-                    className="min-w-[125px] rounded-xl border border-[#e4e3f0] bg-[#eee9ff] px-3 py-2.5 text-xs font-semibold text-[#49456f] outline-none focus:border-[#7868f4] focus:ring-4 focus:ring-[#7868f4]/10"
-                    aria-label={`Change ${u.name} role`}
-                    value={u.role}
-                    onChange={async (e) => {
-                      try {
-                        await api.patch(`/admin/users/${u.id}/role`, {
-                          role: e.target.value,
-                        });
-                        toast.success("Member role updated.");
-                        onRefresh();
-                      } catch (err) {
-                        toast.error(errorText(err));
-                      }
-                    }}
-                  >
-                    <option value="user">Reader</option>
-                    <option value="librarian">Librarian</option>
-                    <option value="admin">Admin</option>
-                  </select>
-                  <button
-                    className="rounded-lg px-3 py-2 text-xs font-bold text-[#ba5b72] transition hover:bg-[#fff0f3]"
-                    onClick={() => setRemove(u)}
-                  >
-                    Delete
-                  </button>
+                    <select
+                      className="min-w-[125px] rounded-xl border border-[#e4e3f0] bg-[#eee9ff] px-3 py-2.5 text-xs font-semibold text-[#49456f] outline-none focus:border-[#7868f4] focus:ring-4 focus:ring-[#7868f4]/10"
+                      aria-label={`Change ${u.name} role`}
+                      value={u.role}
+                      onChange={async (e) => {
+                        try {
+                          await api.patch(`/admin/users/${u.id}/role`, {
+                            role: e.target.value,
+                          });
+                          toast.success("Member role updated.");
+                          onRefresh();
+                        } catch (err) {
+                          toast.error(errorText(err));
+                        }
+                      }}
+                    >
+                      <option value="user">Reader</option>
+                      <option value="librarian">Librarian</option>
+                      <option value="admin">Admin</option>
+                    </select>
+                    <button
+                      className="rounded-lg px-3 py-2 text-xs font-bold text-[#ba5b72] transition hover:bg-[#fff0f3]"
+                      onClick={() => setRemove(u)}
+                    >
+                      Delete
+                    </button>
                   </div>
                 </td>
               </tr>
@@ -3734,14 +3741,14 @@ function StatusBadge({ status }) {
 }
 function BookModal({ close, done, admin = false }) {
   const [form, setForm] = useState({
-      title: "",
-      author: "",
-      description: "",
-      category: "Fiction",
-      deliveryFee: "2.99",
-      quantity: "1",
-      coverUrl: "",
-    }),
+    title: "",
+    author: "",
+    description: "",
+    category: "Fiction",
+    deliveryFee: "2.99",
+    quantity: "1",
+    coverUrl: "",
+  }),
     [file, setFile] = useState(null),
     [busy, setBusy] = useState(false);
   const submit = async (e) => {
